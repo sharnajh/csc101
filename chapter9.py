@@ -3,7 +3,7 @@
 # Chapter: 9
 
 # I am importing Python3's built-in random module in order
-# to use random.randint() and random.uniform() on line 21
+# to use random.randint() and random.uniform() on line 30
 import random
 
 
@@ -22,7 +22,7 @@ def convertToUSD(amount):
     # >> import locale
     # >> # Checks the locale environment's region
     # >> locale.setlocale( locale.LC_ALL, '' )
-    # >> # Call locale.currency() function to format with region's currency sign
+    # >> # Call locale.currency(amount) function to format amount
     # >> # 'grouping=True' parameter formats the amount with commas
     # >> locale.currency(amount_var, grouping=True )
 
@@ -39,11 +39,11 @@ def randomNum(type, min, max):
     # Checking if desired result is an integer
     if type == "int":
         # Returns a random integer using the random module
-        return random.randint(min, max)
+        return random.randint(int(min), int(max))
     # Checking if desired result is a float
     elif type == "float":
         # Returns a random float using the random module
-        return random.uniform(min, max)
+        return random.uniform(float(min), float(max))
     else:
         # 'else' error catches in case 'type' isn't valid input
         # Using the multi-line break symbol '\' for brevity
@@ -54,6 +54,7 @@ def randomNum(type, min, max):
 
 
 # Programs
+
 # Program 1
 # output.py
 # I am storing the data in a object to DRY my code
@@ -67,13 +68,20 @@ class Person:
     # __init__ is the function that when executed
     # will create a new instance of the class with
     # the parameters as the data
-    def __init__(self,name,address1,address2):
-        self.name = name
+    def __init__(self,first_name,last_name,address1="",address2=""):
+        # Using Python's built-in title() function to format
+        # the input values so that the first letter of every word
+        # in the string is capitalized and the rest of the chars
+        # are lowercase.
+        self.first_name = first_name.title()
+        self.last_name = last_name.title()
+        self.full_name = f'{first_name.title()} {last_name.title()}'
         self.address1 = address1
         self.address2 = address2
 
 # Then I created an object instance of Person Class with Kate's data
-kate = Person("Kate Austen",
+kate = Person("Kate",
+"Austen",
 "123 Full Circle Drive", 
 "Ascheville, NC 28899")
 
@@ -81,13 +89,13 @@ kate = Person("Kate Austen",
 # This reduces the chance of typos and structures our data comprehensively.
 # I implemented commands '\n' in the string to break the string
 # into seperate lines when printed.
-kate_info = f'{kate.name}\n{kate.address1}\n{kate.address2}'
+kate_info = f'{kate.full_name}\n{kate.address1}\n{kate.address2}'
 print(kate_info)
 
 
 # Program 2
 # double_quotes.py
-kate_info = f"{kate.name}\n{kate.address1}\n{kate.address2}"
+kate_info = f"{kate.full_name}\n{kate.address1}\n{kate.address2}"
 print(kate_info)
 
 
@@ -111,9 +119,7 @@ BOOKS = ["Hamlet",
 # 1 because the index starts from 0, and then using that
 # value as the index to retrieve a random value from the
 # BOOKS array.
-print(f'Your assignment is to read \
-    "{BOOKS[randomNum("int",0,len(BOOKS)-1)]}" \
-     by tomorrow.')
+print(f'Your assignment is to read "{BOOKS[randomNum("int",0,len(BOOKS)-1)]}" by tomorrow.')
 
 
 # Program 5
@@ -125,7 +131,7 @@ print(kate_info)
 
 # Program 6
 # comment2.py
-print(kate.name)               # Display the name.
+print(kate.full_name)          # Display the name.
 print(kate.address1)           # Display the address.
 print(kate.address2)           # Display the city, state, and ZIP.
 
@@ -153,7 +159,7 @@ print(f'The top speed is {top_speed}\nThe distance traveled is {distance}')
 # Program 9
 # variable_demo3.py
 # This program demonstrates a variable.
-room = randomNum("int", 1, 900)
+room = randomNum("int", 1.5, 900)
 print(f'I am staying in room number {room}')
 
 
@@ -178,12 +184,12 @@ print(f'But now I have {convertToUSD(dollars)} in my account!')
 first_name = 'Kahryn'
 last_name = 'Marino'
 
+# Create new Person object with Kahryn's data
+kahryn = Person(first_name,last_name)
+
 # Display the values referenced by the variables.
-# Using Python's built-in title() function to format
-# the input values so that the first letter of every word
-# in the string is capitalized and the rest of the chars
-# are lowercase.
-print(f'{first_name.title()} {last_name.title()}')
+# I am referencing them by their object key value pair instead:
+print(f'{kahryn.first_name} {kahryn.last_name}')
 
 
 # Program 12
@@ -192,17 +198,20 @@ print(f'{first_name.title()} {last_name.title()}')
 # Added a '\t' command to the string passed to
 # the input parameter to create a standard
 # spacing for the questions.
-first_name = input('Enter your first name:\t')
+user_first_name = input('Enter your first name:\t')
 
 # Get the user's last name.
-last_name = input('Enter your last name:\t')
+user_last_name = input('Enter your last name:\t')
+
+# Create new Person object with user's data
+user = Person(user_first_name,user_last_name)
 
 # Print a greeting to the user.
 # Added the 'end' paramater to the print parameter
 # to add an exclaimation mark (!) at the end of the
 # output and then break into a new line for following
 # prints.
-print('Hello', first_name.title(), last_name.title(), end="!\n")
+print('Hello', user.first_name, user.last_name, end="!\n")
 
 
 # Program 13
