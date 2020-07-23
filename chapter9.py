@@ -69,12 +69,12 @@ class Person:
         self.address1 = address1
         self.address2 = address2
 
-# Then I created an instance of Person Class with Kate's data
+# Then I created an object instance of Person Class with Kate's data
 kate = Person("Kate Austen","123 Full Circle Drive", "Ascheville, NC 28899")
 
-# Now I can reference the data in the 'kate' instance of the Person class
-# by it's key name.
-# I also implemented commands '\n' in the string to break the string
+# Now I can reference the data in the 'kate' object by it's key name.
+# This reduces the chance of typos and structures our data comprehensively.
+# I implemented commands '\n' in the string to break the string
 # into seperate lines when printed.
 kate_info = f'{kate.name}\n{kate.address1}\n{kate.address2}'
 print(kate_info)
@@ -118,7 +118,7 @@ print(kate_info)
 
 # Program 6
 # comment2.py
-print(kate.name)                # Display the name.
+print(kate.name)               # Display the name.
 print(kate.address1)           # Display the address.
 print(kate.address2)           # Display the city, state, and ZIP.
 
