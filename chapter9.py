@@ -2,9 +2,8 @@
 # Python Version    Python3
 # Chapter   9
 
-# I am importing Python3's random module in order
-# to use random.randint() and random.uniform()
-# on line 22
+# I am importing Python3's built-in random module in order
+# to use random.randint() and random.uniform() on line 22
 import random
 
 
@@ -41,6 +40,7 @@ def randomNum(type, min, max):
         # Using the multi-line break symbol '\' for brevity
         print(f'{type} is not a valid type. Please input "int" \
              for integer or "float" for float')
+        # return 0 as a default
         return 0
 
 
@@ -52,16 +52,21 @@ def randomNum(type, min, max):
 # important principle in software development that
 # I learned from the book "The Pragmatic Programmer"
 # by Andy Hut & Dave Thomas.
+# Variables are constant vars because I don't want
+# the data to mutate at any point.
+KATE_NAME = 'Kate Austen'
+KATE_ADDRESS_1 = '123 Full Circle Drive'
+KATE_ADDRESS_2 = 'Ascheville, NC 28899'
 # I implemented commands '\n' in the string to break the string
 # into seperate lines when printed.
-user_info = 'Kate Austen\n123 Full Circle Drive\nAscheville, NC 28899'
-print(user_info)
+kate_info = f'{KATE_NAME}\n{KATE_ADDRESS_1}\n{KATE_ADDRESS_2}'
+print(kate_info)
 
 
 # Program 2
 # double_quotes.py
-user_info = "Kate Austen\n123 Full Circle Drive\nAscheville, NC 28899"
-print(user_info)
+kate_info = f"{KATE_NAME}\n{KATE_ADDRESS_1}\n{KATE_ADDRESS_2}"
+print(kate_info)
 
 
 # Program 3
@@ -71,21 +76,32 @@ print("Don't fear!\nI'm here!")
 
 # Program 4
 # display_quote.py
-print('Your assignment is to read "Hamlet" by tomorrow.')
+# Created an array of different books by Shakespeare
+BOOKS = ["Hamlet", 
+"Romeo & Juliet", 
+"Macbeth", 
+"A Midsummer Night's Dream", 
+"Othello"]
+# Using the randomNum() function to generate a random
+# value from 0 to the max length of the BOOKS array minus
+# 1 because the index starts from 0, and then using that
+# value as the index to retrieve a random value from the
+# BOOKS array.
+print(f'Your assignment is to read "{BOOKS[randomNum("int",0,len(BOOKS)-1)]}" by tomorrow.')
 
 
 # Program 5
 # comment1.py
 # This program displays a person's
 # name and address.
-print(user_info)
+print(kate_info)
 
 
 # Program 6
 # comment2.py
-print('Kate Austen')                # Display the name.
-print('123 Full Circle Drive')      # Display the address.
-print('Ascheville, NC 28899')       # Display the city, state, and ZIP.
+print(KATE_NAME)                # Display the name.
+print(KATE_ADDRESS_1)           # Display the address.
+print(KATE_ADDRESS_2)           # Display the city, state, and ZIP.
 
 
 # Program 7
@@ -136,7 +152,11 @@ first_name = 'Kahryn'
 last_name = 'Marino'
 
 # Display the values referenced by the variables.
-print(f'{first_name} {last_name}')
+# Using Python's built-in title() function to format
+# the input values so that the first letter of every word
+# in the string is capitalized and the rest of the chars
+# are lowercase.
+print(f'{first_name.title()} {last_name.title()}')
 
 
 # Program 12
@@ -155,7 +175,7 @@ last_name = input('Enter your last name:\t')
 # to add an exclaimation mark (!) at the end of the
 # output and then break into a new line for following
 # prints.
-print('Hello', first_name, last_name, end="!\n")
+print('Hello', first_name.title(), last_name.title(), end="!\n")
 
 
 # Program 13
@@ -169,6 +189,6 @@ income = float(input('What is your income?\t'))
 print('Here is the data you entered:')
 # I implemented the 'sep' parameter to set a delimeter that
 # seperates the multiple values with a ': '
-print('Name', user_name, sep=": ")
+print('Name', user_name.title(), sep=": ")
 print('Age', age, sep=": ")
 print('Income', convertToUSD(income), sep=": ")
