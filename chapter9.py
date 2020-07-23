@@ -138,8 +138,9 @@ print(f'I am staying in room number {room}')
 # Program 8
 # variable_demo2.py
 # Create two variables: top_speed and distance.
-top_speed = randomNum("int", 100, 900)
-distance = randomNum("int", 100, 900)
+# Example of passing a function as a parameter
+top_speed = randomNum("int", 100, randomNum("int",101,900))
+distance = randomNum("int", 100, randomNum("int",101,900))
 
 # Display the values referenced by the variables.
 print(f'The top speed is {top_speed}\nThe distance traveled is {distance}')
