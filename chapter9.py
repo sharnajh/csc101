@@ -16,12 +16,12 @@ def convertToUSD(amount):
     # I am using Python 3's Literal String Interpolation
     # in order to inject Python code inside of the string.
     return f'${str("{:,.2f}".format(amount))}'
-    # An alternative method is to import Python3's locale
+    # An alternative method is to use Python3's locale
     # module to use the locale.currency() function that
     # formats money amount to the local computer's region.
     # >> import locale
     # >> # Checks the locale environment's region
-    # >> locale.setlocale( locale.LC_ALL, '' )
+    # >> locale.setlocale(locale.LC_ALL,'')
     # >> # Call locale.currency(amount) function to format amount
     # >> # 'grouping=True' parameter formats the amount with commas
     # >> locale.currency(amount_var, grouping=True )
