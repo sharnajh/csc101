@@ -73,9 +73,10 @@ class Person:
         # the input values so that the first letter of every word
         # in the string is capitalized and the rest of the chars
         # are lowercase.
-        self.first_name = first_name.title()
-        self.last_name = last_name.title()
-        self.full_name = f'{first_name.title()} {last_name.title()}'
+        # Strip() removed all whitespace.
+        self.first_name = first_name.strip().title()
+        self.last_name = last_name.strip().title()
+        self.full_name = f'{self.first_name} {self.last_name}'
         self.address1 = address1
         self.address2 = address2
 
@@ -165,7 +166,7 @@ print(f'The top speed is {top_speed}\nThe distance traveled is {distance}')
 # Program 9
 # variable_demo3.py
 # This program demonstrates a variable.
-# Using a float as a parameter for the int function
+# I used a float as a parameter for randomNum()
 # to test whether there will be an error by mixing
 # types. There was, so I adjusted the randomNum()
 # function to convert the parameters to the right
@@ -210,9 +211,22 @@ print(f'{kahryn.first_name} {kahryn.last_name}')
 # the input parameter to create a standard
 # spacing for the questions.
 user_first_name = input('Enter your first name:\t')
+# Checks if input is a valid first name by using isalpha()
+# which checks if the string has alphabet characters only.
+# "while" functions are like if/else but they loop the code
+# until the specified condition is finally met.
+# I removed all of the spaces in the input with replace()
+# because isalpha returns false if there are spaces in the
+# string.
+while not user_first_name.replace(" ","").isalpha():
+    print(f"Oops! '{user_first_name}' is not a valid first name\nTry again!")
+    user_first_name = input('Enter your first name:\t')
 
 # Get the user's last name.
 user_last_name = input('Enter your last name:\t')
+while not user_last_name.replace(" ","").isalpha():
+    print(f"Oops! '{user_last_name}' is not a valid last name\nTry again!")
+    user_last_name = input('Enter your last name:\t')
 
 # Create new Person object with user's data
 user = Person(user_first_name,user_last_name)
@@ -229,13 +243,27 @@ print('Hello', user.first_name, user.last_name, end="!\n")
 # input.py
 # Get the user's name, age, and income.
 user_name = input('What is your name?\t')
-age = int(input('What is your age?\t'))
-income = float(input('What is your income?\t'))
+while not user_name.replace(" ","").isalpha():
+    print(f"Oops! '{user_name}' is not a valid name\nTry again!")
+    user_name = input('What is your name?\t')
+    
+age = input('What is your age?\t')
+# isnumeric() is the same as isalpha() but for number values
+while not age.isnumeric():
+    print(f"Oops! '{age}' is not a valid number\nTry again!")
+    age = input('What is your age?\t')
+age = int(age)
+
+income = input('What is your income?\t')
+while not income.isnumeric():
+    print(f"Oops! '{income}' is not a valid number\nTry again!")
+    income = input('What is your income?\t')
+income = float(income)
 
 # Display the data
 print('Here is the data you entered:')
 # I implemented the 'sep' parameter to set a delimeter that
 # seperates the multiple values with a ': '
-print('Name', user_name.title(), sep=": ")
+print('Name', user_name.strip().title(), sep=": ")
 print('Age', age, sep=": ")
 print('Income', convertToUSD(income), sep=": ")
