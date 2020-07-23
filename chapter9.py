@@ -119,7 +119,10 @@ BOOKS = ["Hamlet",
 # 1 because the index starts from 0, and then using that
 # value as the index to retrieve a random value from the
 # BOOKS array.
-print(f'Your assignment is to read "{BOOKS[randomNum("int",0,len(BOOKS)-1)]}" by tomorrow.')
+books_length = (len(BOOKS) - 1)
+random_index = randomNum("int",0,books_length)
+random_book = BOOKS[random_index]
+print(f'Your assignment is to read "{random_book}" by tomorrow.')
 
 
 # Program 5
