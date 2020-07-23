@@ -47,10 +47,37 @@ def randomNum(type, min, max):
     else:
         # 'else' error catches in case 'type' isn't valid input
         # Using the multi-line break symbol '\' for brevity
-        print(f'{type} is not a valid type. Please input "int" \
-             for integer or "float" for float')
+        print(f'{type} is not a valid type.')
         # return 0 as a default
         return 0
+
+
+
+# Decided to create a function to generate inputs because it would be
+# repetitive to hardcode this standard functionality every time.
+def generateInput(var,type,message):
+    # globals() allows for dynamic variable names, which means
+    # we can declare a variable's name as the value of another variable,
+    # which in this case is the var parameter of this function.
+    globals()[var] = input(f'{message}\t')      # \t to add spacing
+    if type == "name":
+        # Checks if input is a valid first name by using isalpha()
+        # which checks if the string has alphabet characters only.
+        # "while" functions are like if/else but they loop the code
+        # until the specified condition is finally met.
+        # I removed all of the spaces in the input with replace()
+        # because isalpha returns false if there are spaces in the
+        # string.
+        while not globals()[var].replace(" ","").isalpha():
+            print(f'Whoops! {globals()[var]} is not a valid name')
+            globals()[var] = input(f'{message}\t')
+    elif type == "number":
+        # isnumeric() is the same as isalpha() but for number values
+        while not globals()[var].isnumeric():
+            print(f'Whoops! {globals()[var]} is not a valid number')
+            globals()[var] = input(f'{message}\t')
+    else:
+        print(f'{type} is not a valid type')
 
 
 # Programs
@@ -207,26 +234,10 @@ print(f'{kahryn.first_name} {kahryn.last_name}')
 # Program 12
 # string_input.py
 # Get the user's first name.
-# Added a '\t' command to the string passed to
-# the input parameter to create a standard
-# spacing for the questions.
-user_first_name = input('Enter your first name:\t')
-# Checks if input is a valid first name by using isalpha()
-# which checks if the string has alphabet characters only.
-# "while" functions are like if/else but they loop the code
-# until the specified condition is finally met.
-# I removed all of the spaces in the input with replace()
-# because isalpha returns false if there are spaces in the
-# string.
-while not user_first_name.replace(" ","").isalpha():
-    print(f"Oops! '{user_first_name}' is not a valid first name\nTry again!")
-    user_first_name = input('Enter your first name:\t')
+generateInput("user_first_name","name","Enter your first name:")
 
 # Get the user's last name.
-user_last_name = input('Enter your last name:\t')
-while not user_last_name.replace(" ","").isalpha():
-    print(f"Oops! '{user_last_name}' is not a valid last name\nTry again!")
-    user_last_name = input('Enter your last name:\t')
+generateInput("user_last_name","name","Enter your last name:")
 
 # Create new Person object with user's data
 user = Person(user_first_name,user_last_name)
@@ -242,28 +253,16 @@ print('Hello', user.first_name, user.last_name, end="!\n")
 # Program 13
 # input.py
 # Get the user's name, age, and income.
-user_name = input('What is your name?\t')
-while not user_name.replace(" ","").isalpha():
-    print(f"Oops! '{user_name}' is not a valid name\nTry again!")
-    user_name = input('What is your name?\t')
+generateInput("user_name","name","What is your name?")
     
-age = input('What is your age?\t')
-# isnumeric() is the same as isalpha() but for number values
-while not age.isnumeric():
-    print(f"Oops! '{age}' is not a valid number\nTry again!")
-    age = input('What is your age?\t')
-age = int(age)
+generateInput("age","number","What is your age?")
 
-income = input('What is your income?\t')
-while not income.isnumeric():
-    print(f"Oops! '{income}' is not a valid number\nTry again!")
-    income = input('What is your income?\t')
-income = float(income)
+generateInput("income","number","What is your income?")
 
 # Display the data
 print('Here is the data you entered:')
 # I implemented the 'sep' parameter to set a delimeter that
 # seperates the multiple values with a ': '
 print('Name', user_name.strip().title(), sep=": ")
-print('Age', age, sep=": ")
-print('Income', convertToUSD(income), sep=": ")
+print('Age', int(age), sep=": ")
+print('Income', convertToUSD(float(income)), sep=": ")
