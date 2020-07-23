@@ -54,7 +54,7 @@ def randomNum(type, min, max):
 
 # Decided to create a function to generate inputs because it would be
 # repetitive to hardcode this standard functionality every time.
-def generateInput(var,type,message):
+def generateInput(var, type, message):
     # globals() allows for dynamic variable names, which means
     # we can declare a variable's name as the value of another variable,
     # which in this case is the var parameter of this function.
@@ -68,7 +68,7 @@ def generateInput(var,type,message):
         # I removed all of the spaces in the input with replace()
         # because isalpha returns false if there are spaces in the
         # string.
-        while not globals()[var].replace(" ","").isalpha():
+        while not globals()[var].replace(" ", "").isalpha():
             print(f'Whoops! "{globals()[var]}" is not a valid name')
             globals()[var] = input(f'{message}\t')
     elif type == "number":
@@ -95,7 +95,7 @@ class Person:
     # __init__ is the function that when executed
     # will create a new instance of the class with
     # the parameters as the data
-    def __init__(self,first_name,last_name,address1="",address2=""):
+    def __init__(self, first_name, last_name, address1="", address2=""):
         # Using Python's built-in title() function to format
         # the input values so that the first letter of every word
         # in the string is capitalized and the rest of the chars
@@ -107,11 +107,12 @@ class Person:
         self.address1 = address1
         self.address2 = address2
 
+
 # Then I created an object instance of Person Class with Kate's data
 kate = Person("Kate",
-"Austen",
-"123 Full Circle Drive", 
-"Ascheville, NC 28899")
+              "Austen",
+              "123 Full Circle Drive",
+              "Ascheville, NC 28899")
 
 # Now I can reference the data in the 'kate' object by it's key name.
 # This reduces the chance of typos and structures our data comprehensively.
@@ -137,18 +138,18 @@ print("Don't fear!\nI'm here!")
 # Created an array of different books by Shakespeare.
 # Used constant variable for books because I don't want
 # the data to mutate at any point.
-BOOKS = ["Hamlet", 
-"Romeo & Juliet", 
-"Macbeth", 
-"A Midsummer Night's Dream", 
-"Othello"]
+BOOKS = ["Hamlet",
+         "Romeo & Juliet",
+         "Macbeth",
+         "A Midsummer Night's Dream",
+         "Othello"]
 # Using the randomNum() function to generate a random
 # value from 0 to the max length of the BOOKS array minus
 # 1 because the index starts from 0, and then using that
 # value as the index to retrieve a random value from the
 # BOOKS array.
 books_length = (len(BOOKS) - 1)     # len(arr) gets length of array
-random_index = randomNum("int",0,books_length)
+random_index = randomNum("int", 0, books_length)
 random_book = BOOKS[random_index]
 # I broke up the pieces into their own variables for legibility
 # It would have looked like this otherise:
@@ -183,8 +184,8 @@ print(f'I am staying in room number {room}')
 # variable_demo2.py
 # Create two variables: top_speed and distance.
 # Example of passing a function as a parameter
-top_speed = randomNum("int", 100, randomNum("int",101,900))
-distance = randomNum("int", 100, randomNum("int",101,900))
+top_speed = randomNum("int", 100, randomNum("int", 101, 900))
+distance = randomNum("int", 100, randomNum("int", 101, 900))
 
 # Display the values referenced by the variables.
 print(f'The top speed is {top_speed}\nThe distance traveled is {distance}')
@@ -213,7 +214,7 @@ print(f'I have {convertToUSD(dollars)} in my account.')
 
 # Reassign dollars so it references
 # a different value.
-# Using (+=) shorthand operand because it is the 
+# Using (+=) shorthand operand because it is the
 # equivalaned of (dollars = dollars + randomNum(x,y,z))
 dollars += randomNum("float", 2.50, 300)
 print(f'But now I have {convertToUSD(dollars)} in my account!')
@@ -226,7 +227,7 @@ first_name = 'Kahryn'
 last_name = 'Marino'
 
 # Create new Person object with Kahryn's data
-kahryn = Person(first_name,last_name)
+kahryn = Person(first_name, last_name)
 
 # Display the values referenced by the variables.
 # I am referencing them by their object key value pair instead:
@@ -237,14 +238,14 @@ print(f'{kahryn.first_name} {kahryn.last_name}')
 # string_input.py
 # Get the user's first name.
 user_first_name = None
-generateInput("user_first_name","name","Enter your first name:")
+generateInput("user_first_name", "name", "Enter your first name:")
 
 # Get the user's last name.
 user_last_name = None
-generateInput("user_last_name","name","Enter your last name:")
+generateInput("user_last_name", "name", "Enter your last name:")
 
 # Create new Person object with user's data
-user = Person(user_first_name,user_last_name)
+user = Person(user_first_name, user_last_name)
 
 # Print a greeting to the user.
 # Added the 'end' paramater to the print parameter
@@ -257,10 +258,10 @@ print('Hello', user.first_name, user.last_name, end="!\n")
 # Program 13
 # input.py
 # Get the user's age and income.
-generateInput("age","number","What is your age?")
+generateInput("age", "number", "What is your age?")
 user.age = int(globals()["age"])
 
-generateInput("income","number","What is your income?")
+generateInput("income", "number", "What is your income?")
 user.income = float(globals()["income"])
 
 # Display the data
@@ -270,3 +271,142 @@ print('Here is the data you entered:')
 print('Name', user.full_name, sep=": ")
 print('Age', user.age, sep=": ")
 print('Income', convertToUSD(user.income), sep=": ")
+
+
+# Program 14
+# simple_math.py
+# Assign a value to the salary variable.
+salary = 2300.0
+
+# Assign a value to the bonus variable.
+bonus = 1200.0
+
+# Calculate the total pay by adding salary and bonus.
+# Assign the result to pay.
+pay = salary + bonus
+
+# Display
+print(f'Your pay is {convertToUSD(pay)}')
+
+
+# Program 15
+# sale_price.py
+# This program gets an item's original price and
+# calculates its sales price, with a 20% discount.
+# Get the item's original price.
+original_price = float(input("Enter the item's original price:\t"))
+
+# Calculate the amount of the discount.
+discount = original_price * .2
+
+# Calculate the sales price.
+sale_price = original_price - discount
+
+# Display the sale price.
+print(f'The sale price is {convertToUSD(sale_price)}')
+
+
+# Program 16
+# test_score_average.py
+# Get three test scores and assign them to the
+# test1, test2, and test3 variables.
+test1 = float(input('Enter the first test score:\t'))
+test2 = float(input('Enter the second test score:\t'))
+test3 = float(input('Enter the third test score:\t'))
+
+# Calculate the average of the three scores
+# and assign the result to the average score.
+average = ((test1 + test2 + test3) / 3.0)
+
+# Display the average
+print(f'The average score is {average}%')
+
+
+# Program 17
+# time_converter.py
+# Get a number of seconds from the user.
+total_seconds = float(input('Enter a number of seconds:\t'))
+
+# Get the number of hours.
+hours = total_seconds // 3600
+
+# Get the number of remaining minutes.
+minutes = (total_seconds // 60) % 60
+
+# Get the number of remaining seconds.
+seconds = total_seconds % 60
+
+# Display the results
+print('Here is the time in hours, minutes, and seconds:')
+print(f'Hours:\t{hours}\nMinutes:\t{minutes}\nSeconds:\t{seconds}')
+
+
+# Program 18
+# future_value.py
+# Get the desired future value.
+future_value = float(input('Enter the desired future value:\t'))
+
+# Get the annual interest rate.
+rate = float(input('Enter the annual interest rate:\t'))
+
+# Get the number of years that the money will appreciate
+years = int(input('Enter the number of years the money will grow:\t'))
+
+# Calculate the amount that needed to deposit
+present_value = future_value / (1.0 + rate)**years
+
+# Display the amount needed to deposit
+print(f'You will need to deposit this amount: {present_value}')
+
+
+# Program 19
+# no_formatting.py
+# This demonstrates how a floating-point number is displayed
+# with no formatting.
+amount_due = 5000.0
+monthly_payment = amount_due / 12.0
+print(f'The monthly payment is {monthly_payment}')
+
+
+# Program 20
+# formatting.py
+# This program demonstrates how a floating-point number can be
+# formatted.
+amount_due = 5000.0
+monthly_payment = amount_due / 12.0
+print(f'The monthly payment is {convertToUSD(monthly_payment)}')
+
+
+# Program 21
+# dollar_display.py
+# This program demonstrates how a floating-point number can be
+# displayed as currency.
+amount_due = 5000.0
+monthly_payment = amount_due / 12.0
+print(f'The monthly payment is {convertToUSD(monthly_payment)}')
+
+
+# Program 22
+# columns.py
+# This program displays the following
+# floating-point numbers in a column
+# with their decimal points aligned.
+# Writing out multiple values and printing each
+# one-by-one is an anti-pattern in coding, so I 
+# am automating it with a dictionary and for loops.
+# First, I declared a dictionary called numbers.
+numbers = {}
+
+# I used a for loop to generate 6 random numbers
+# with variables num(x) as key value-pairs in the
+# numbers dictionary.
+# Using range() to get t a range of values from 0
+# to 7, which is the same as 1-6.
+for x in range(0,6):
+    numbers[f'num{x}'] = randomNum('float',1,800)
+
+# Display each number in a field of 7 spaces
+# with 2 decimal spaces.
+# I used another for loop to print all of the va
+for i in numbers:
+    print(numbers[i])
