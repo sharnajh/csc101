@@ -2,20 +2,43 @@
 # Python Version    Python3
 # Chapter   9
 
+# I am importing Python3's random module in order
+# to use random.randint() and random.uniform()
+# on line 22
+import random
+
 
 # Helper Functions
 
-# This helper function takes a int/float dollar
-# amount and converts it to a string, and formats
-# into USD format (ex: $100.00).
-# I am using Python 3's Literal String Interpolation
-# in order to inject Python code inside of the string.
+# This helper function takes a int/float dollar amount
+# as a parameter and converts it to a string, and formats it
+# into USD format (ex: $100.00) using the format function.
 def convertToUSD(amount):
+    # I am using Python 3's Literal String Interpolation
+    # in order to inject Python code inside of the string.
     return f'${str("{:,.2f}".format(amount))}'
 
 
-# Programs
+# This helper function takes a type, minimum_value, and
+# a maximum_value as the parameters and returns
+# a random integer or float (depending on the type param)
+# from that range.
+def randomNum(type, min, max):
+    # I am using if/elif logic statements to check what
+    # the value of the type parameter is in order to determine
+    # which part of the code should be executed to get the
+    # desired result.
+    # Checking if desired result is an integer
+    if type == "int":
+        # Returns a random integer using the random module
+        return random.randint(min, max)
+    # Checking if desired result is a float
+    elif type == "float":
+        # Returns a random float using the random module
+        return random.uniform(min, max)
 
+
+# Programs
 # Program 1
 # output.py
 # I am storing the data in a variable to DRY my code
@@ -62,24 +85,26 @@ print('Ascheville, NC 28899')       # Display the city, state, and ZIP.
 # Program 7
 # variable_demo.py
 # This program demonstrates a variable.
-room = 503
+# Executing the randomNum helper function
+# in order to generate random numbers
+room = randomNum("int", 1, 900)
 print(f'I am staying in room number {room}')
 
 
 # Program 8
 # variable_demo2.py
 # Create two variables: top_speed and distance.
-top_speed = 160
-distance = 300
+top_speed = randomNum("int", 100, 900)
+distance = randomNum("int", 100, 900)
 
-#Display the values referenced by the variables.
+# Display the values referenced by the variables.
 print(f'The top speed is {top_speed}\nThe distance traveled is {distance}')
 
 
 # Program 9
 # variable_demo3.py
 # This program demonstrates a variable.
-room = 503
+room = randomNum("int", 1, 900)
 print(f'I am staying in room number {room}')
 
 
@@ -87,14 +112,14 @@ print(f'I am staying in room number {room}')
 # variable_demo4.py
 # This program demonstrates veriable reassignment.
 # Assign a value to the dollars variable.
-dollars = 5.75
+dollars = randomNum("float", 2.50, 300)
 # Executing the helper function I created convertToUSD()
 # inside of the string interpolation to print the value.
 print(f'I have {convertToUSD(dollars)} in my account.')
 
 # Reassign dollars so it references
 # a different value.
-dollars = 99.95
+dollars = randomNum("float", 300, 900)
 print(f'But now I have {convertToUSD(dollars)} in my account!')
 
 
@@ -111,15 +136,12 @@ print(f'{first_name} {last_name}')
 # Program 12
 # string_input.py
 # Get the user's first name.
-# Added a '\t' command to the string passed to 
+# Added a '\t' command to the string passed to
 # the input parameter to create a standard
 # spacing for the questions.
 first_name = input('Enter your first name:\t')
 
 # Get the user's last name.
-# Added a '\t' command to the string passed to 
-# the input parameter to create a standard
-# spacing for the questions.
 last_name = input('Enter your last name:\t')
 
 # Print a greeting to the user.
@@ -140,7 +162,7 @@ income = float(input('What is your income?\t'))
 # Display the data
 print('Here is the data you entered:')
 # I implemented the 'sep' parameter to set a delimeter that
-# seperates the multiple values with a ': ' 
+# seperates the multiple values with a ': '
 print('Name', user_name, sep=": ")
 print('Age', age, sep=": ")
 print('Income', convertToUSD(income), sep=": ")
