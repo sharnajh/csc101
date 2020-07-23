@@ -3,7 +3,7 @@
 # Chapter   9
 
 # I am importing Python3's built-in random module in order
-# to use random.randint() and random.uniform() on line 22
+# to use random.randint() and random.uniform() on line 21
 import random
 
 
