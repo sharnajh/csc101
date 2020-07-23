@@ -69,12 +69,12 @@ def generateInput(var,type,message):
         # because isalpha returns false if there are spaces in the
         # string.
         while not globals()[var].replace(" ","").isalpha():
-            print(f'Whoops! {globals()[var]} is not a valid name')
+            print(f'Whoops! "{globals()[var]}" is not a valid name')
             globals()[var] = input(f'{message}\t')
     elif type == "number":
         # isnumeric() is the same as isalpha() but for number values
         while not globals()[var].isnumeric():
-            print(f'Whoops! {globals()[var]} is not a valid number')
+            print(f'Whoops! "{globals()[var]}" is not a valid number')
             globals()[var] = input(f'{message}\t')
     else:
         print(f'{type} is not a valid type')
@@ -95,8 +95,7 @@ class Person:
     # __init__ is the function that when executed
     # will create a new instance of the class with
     # the parameters as the data
-    def __init__(self,first_name,last_name,address1="",address2="",
-    age=0, income=0):
+    def __init__(self,first_name,last_name,address1="",address2=""):
         # Using Python's built-in title() function to format
         # the input values so that the first letter of every word
         # in the string is capitalized and the rest of the chars
@@ -107,8 +106,6 @@ class Person:
         self.full_name = f'{self.first_name} {self.last_name}'
         self.address1 = address1
         self.address2 = address2
-        self.age = int(age)
-        self.income = float(income)
 
 # Then I created an object instance of Person Class with Kate's data
 kate = Person("Kate",
@@ -259,10 +256,7 @@ print('Hello', user.first_name, user.last_name, end="!\n")
 
 # Program 13
 # input.py
-# Get the user's name, age, and income.
-generateInput("user_name","name","What is your name?")
-user.full_name = globals()["user_name"]
-    
+# Get the user's age and income.
 generateInput("age","number","What is your age?")
 user.age = int(globals()["age"])
 
@@ -273,6 +267,6 @@ user.income = convertToUSD(float(globals()["income"]))
 print('Here is the data you entered:')
 # I implemented the 'sep' parameter to set a delimeter that
 # seperates the multiple values with a ': '
-print('Name', user.full_name.strip().title(), sep=": ")
+print('Name', user.full_name, sep=": ")
 print('Age', user.age, sep=": ")
 print('Income', user.income, sep=": ")
