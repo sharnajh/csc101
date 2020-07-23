@@ -159,6 +159,11 @@ print(f'The top speed is {top_speed}\nThe distance traveled is {distance}')
 # Program 9
 # variable_demo3.py
 # This program demonstrates a variable.
+# Using a float as a parameter for the int function
+# to test whether there will be an error by mixing
+# types. There was, so I adjusted the randomNum()
+# function to convert the parameters to the right
+# types before executing rest of the function.
 room = randomNum("int", 1.5, 900)
 print(f'I am staying in room number {room}')
 
