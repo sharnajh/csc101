@@ -20,8 +20,11 @@ def convertToUSD(amount):
     # module to use the locale.currency() function that
     # formats money amount to the local computer's region.
     # >> import locale
-    # >> locale.setlocale( locale.LC_ALL, '' )          # Checks the locale environment's region
-    # >> locale.currency(amount_var, grouping=True )    # 'grouping=True' formats the amount with commas
+    # >> # Checks the locale environment's region
+    # >> locale.setlocale( locale.LC_ALL, '' )
+    # >> # Call locale.currency() function to format with region's currency sign
+    # >> # 'grouping=True' parameter formats the amount with commas
+    # >> locale.currency(amount_var, grouping=True )
 
 
 # This helper function takes a type, minimum_value, and
