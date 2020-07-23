@@ -73,7 +73,9 @@ class Person:
         self.address2 = address2
 
 # Then I created an object instance of Person Class with Kate's data
-kate = Person("Kate Austen","123 Full Circle Drive", "Ascheville, NC 28899")
+kate = Person("Kate Austen",
+"123 Full Circle Drive", 
+"Ascheville, NC 28899")
 
 # Now I can reference the data in the 'kate' object by it's key name.
 # This reduces the chance of typos and structures our data comprehensively.
@@ -109,7 +111,9 @@ BOOKS = ["Hamlet",
 # 1 because the index starts from 0, and then using that
 # value as the index to retrieve a random value from the
 # BOOKS array.
-print(f'Your assignment is to read "{BOOKS[randomNum("int",0,len(BOOKS)-1)]}" by tomorrow.')
+print(f'Your assignment is to read \
+    "{BOOKS[randomNum("int",0,len(BOOKS)-1)]}" \
+     by tomorrow.')
 
 
 # Program 5
