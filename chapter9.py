@@ -52,13 +52,13 @@ def randomNum(type, min, max):
         return 0
 
 
-
 # Decided to create a function to generate inputs because it would be
 # repetitive to hardcode this standard functionality every time.
 def generateInput(var,type,message):
     # globals() allows for dynamic variable names, which means
     # we can declare a variable's name as the value of another variable,
     # which in this case is the var parameter of this function.
+    # I read online that dictionaries would be better for dynamic vars.
     globals()[var] = input(f'{message}\t')      # \t to add spacing
     if type == "name":
         # Checks if input is a valid first name by using isalpha()
@@ -95,7 +95,8 @@ class Person:
     # __init__ is the function that when executed
     # will create a new instance of the class with
     # the parameters as the data
-    def __init__(self,first_name,last_name,address1="",address2=""):
+    def __init__(self,first_name,last_name,address1="",address2="",
+    age=0, income=0):
         # Using Python's built-in title() function to format
         # the input values so that the first letter of every word
         # in the string is capitalized and the rest of the chars
@@ -106,6 +107,8 @@ class Person:
         self.full_name = f'{self.first_name} {self.last_name}'
         self.address1 = address1
         self.address2 = address2
+        self.age = int(age)
+        self.income = float(income)
 
 # Then I created an object instance of Person Class with Kate's data
 kate = Person("Kate",
@@ -213,7 +216,9 @@ print(f'I have {convertToUSD(dollars)} in my account.')
 
 # Reassign dollars so it references
 # a different value.
-dollars = randomNum("float", 300, 900)
+# Using (+=) shorthand operand because it is the 
+# equivalaned of (dollars = dollars + randomNum(x,y,z))
+dollars += randomNum("float", 2.50, 300)
 print(f'But now I have {convertToUSD(dollars)} in my account!')
 
 
@@ -234,9 +239,11 @@ print(f'{kahryn.first_name} {kahryn.last_name}')
 # Program 12
 # string_input.py
 # Get the user's first name.
+user_first_name = None
 generateInput("user_first_name","name","Enter your first name:")
 
 # Get the user's last name.
+user_last_name = None
 generateInput("user_last_name","name","Enter your last name:")
 
 # Create new Person object with user's data
@@ -254,15 +261,18 @@ print('Hello', user.first_name, user.last_name, end="!\n")
 # input.py
 # Get the user's name, age, and income.
 generateInput("user_name","name","What is your name?")
+user.full_name = globals()["user_name"]
     
 generateInput("age","number","What is your age?")
+user.age = int(globals()["age"])
 
 generateInput("income","number","What is your income?")
+user.income = convertToUSD(float(globals()["income"]))
 
 # Display the data
 print('Here is the data you entered:')
 # I implemented the 'sep' parameter to set a delimeter that
 # seperates the multiple values with a ': '
-print('Name', user_name.strip().title(), sep=": ")
-print('Age', int(age), sep=": ")
-print('Income', convertToUSD(float(income)), sep=": ")
+print('Name', user.full_name.strip().title(), sep=": ")
+print('Age', user.age, sep=": ")
+print('Income', user.income, sep=": ")
