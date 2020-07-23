@@ -122,6 +122,9 @@ BOOKS = ["Hamlet",
 books_length = (len(BOOKS) - 1)
 random_index = randomNum("int",0,books_length)
 random_book = BOOKS[random_index]
+# I broke up the pieces into their own variables for legibility
+# It would have looked like this otherise:
+# >> BOOKS[randomNum("int",0,(len(BOOKS) - 1))]
 print(f'Your assignment is to read "{random_book}" by tomorrow.')
 
 
