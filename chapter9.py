@@ -261,7 +261,7 @@ generateInput("age","number","What is your age?")
 user.age = int(globals()["age"])
 
 generateInput("income","number","What is your income?")
-user.income = convertToUSD(float(globals()["income"]))
+user.income = float(globals()["income"])
 
 # Display the data
 print('Here is the data you entered:')
@@ -269,4 +269,4 @@ print('Here is the data you entered:')
 # seperates the multiple values with a ': '
 print('Name', user.full_name, sep=": ")
 print('Age', user.age, sep=": ")
-print('Income', user.income, sep=": ")
+print('Income', convertToUSD(user.income), sep=": ")
