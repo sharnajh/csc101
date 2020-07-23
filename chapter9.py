@@ -119,7 +119,7 @@ BOOKS = ["Hamlet",
 # 1 because the index starts from 0, and then using that
 # value as the index to retrieve a random value from the
 # BOOKS array.
-books_length = (len(BOOKS) - 1)
+books_length = (len(BOOKS) - 1)     # len(arr) gets length of array
 random_index = randomNum("int",0,books_length)
 random_book = BOOKS[random_index]
 # I broke up the pieces into their own variables for legibility
