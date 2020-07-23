@@ -36,6 +36,12 @@ def randomNum(type, min, max):
     elif type == "float":
         # Returns a random float using the random module
         return random.uniform(min, max)
+    else:
+        # 'else' error catches in case 'type' isn't valid input
+        # Using the multi-line break symbol '\' for brevity
+        print(f'{type} is not a valid type. Please input "int" \
+             for integer or "float" for float')
+        return 0
 
 
 # Programs
