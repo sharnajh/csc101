@@ -1,6 +1,6 @@
-# CSC101    Sharna Hossain
-# Python Version    Python3
-# Chapter   9
+# CSC101 - Sharna Hossain
+# Python Version: Python3
+# Chapter: 9
 
 # I am importing Python3's built-in random module in order
 # to use random.randint() and random.uniform() on line 21
@@ -16,6 +16,12 @@ def convertToUSD(amount):
     # I am using Python 3's Literal String Interpolation
     # in order to inject Python code inside of the string.
     return f'${str("{:,.2f}".format(amount))}'
+    # An alternative method is to import Python3's locale
+    # module to use the locale.currency() function that
+    # formats money amount to the local computer's region.
+    # >> import locale
+    # >> locale.setlocale( locale.LC_ALL, '' )          # Checks the locale environment's region
+    # >> locale.currency(amount_var, grouping=True )    # 'grouping=True' formats the amount with commas
 
 
 # This helper function takes a type, minimum_value, and
@@ -47,25 +53,36 @@ def randomNum(type, min, max):
 # Programs
 # Program 1
 # output.py
-# I am storing the data in a variable to DRY my code
+# I am storing the data in a object to DRY my code
 # DRY means 'Don't Repeat Yourself' and it is an
 # important principle in software development that
 # I learned from the book "The Pragmatic Programmer"
 # by Andy Hut & Dave Thomas.
-# Variables are constant vars because I don't want
-# the data to mutate at any point.
-KATE_NAME = 'Kate Austen'
-KATE_ADDRESS_1 = '123 Full Circle Drive'
-KATE_ADDRESS_2 = 'Ascheville, NC 28899'
-# I implemented commands '\n' in the string to break the string
+
+# First I created the class
+class Person:
+    # __init__ is the function that when executed
+    # will create a new instance of the class with
+    # the parameters as the data
+    def __init__(self,name,address1,address2):
+        self.name = name
+        self.address1 = address1
+        self.address2 = address2
+
+# Then I created an instance of Person Class with Kate's data
+kate = Person("Kate Austen","123 Full Circle Drive", "Ascheville, NC 28899")
+
+# Now I can reference the data in the 'kate' instance of the Person class
+# by it's key name.
+# I also implemented commands '\n' in the string to break the string
 # into seperate lines when printed.
-kate_info = f'{KATE_NAME}\n{KATE_ADDRESS_1}\n{KATE_ADDRESS_2}'
+kate_info = f'{kate.name}\n{kate.address1}\n{kate.address2}'
 print(kate_info)
 
 
 # Program 2
 # double_quotes.py
-kate_info = f"{KATE_NAME}\n{KATE_ADDRESS_1}\n{KATE_ADDRESS_2}"
+kate_info = f"{kate.name}\n{kate.address1}\n{kate.address2}"
 print(kate_info)
 
 
@@ -76,7 +93,9 @@ print("Don't fear!\nI'm here!")
 
 # Program 4
 # display_quote.py
-# Created an array of different books by Shakespeare
+# Created an array of different books by Shakespeare.
+# Used constant variable for books because I don't want
+# the data to mutate at any point.
 BOOKS = ["Hamlet", 
 "Romeo & Juliet", 
 "Macbeth", 
@@ -99,9 +118,9 @@ print(kate_info)
 
 # Program 6
 # comment2.py
-print(KATE_NAME)                # Display the name.
-print(KATE_ADDRESS_1)           # Display the address.
-print(KATE_ADDRESS_2)           # Display the city, state, and ZIP.
+print(kate.name)                # Display the name.
+print(kate.address1)           # Display the address.
+print(kate.address2)           # Display the city, state, and ZIP.
 
 
 # Program 7
