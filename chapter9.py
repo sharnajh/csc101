@@ -89,7 +89,6 @@ def generateInput(var, type, message):
 # important principle in software development that
 # I learned from the book "The Pragmatic Programmer"
 # by Andy Hut & Dave Thomas.
-
 # First I created the class
 class Person:
     # __init__ is the function that when executed
@@ -214,7 +213,7 @@ print(f'I have {convertToUSD(dollars)} in my account.')
 
 # Reassign dollars so it references
 # a different value.
-# Using (+=) shorthand operand because it is the
+# I used (+=) shorthand operand because it is the
 # equivalaned of (dollars = dollars + randomNum(x,y,z))
 dollars += randomNum("float", 2.50, 300)
 print(f'But now I have {convertToUSD(dollars)} in my account!')
@@ -363,8 +362,13 @@ print(f'You will need to deposit this amount: {present_value}')
 # no_formatting.py
 # This demonstrates how a floating-point number is displayed
 # with no formatting.
-amount_due = 5000.0
-monthly_payment = amount_due / 12.0
+# Creating function to compute the monthly payments determined
+# by how much is due
+def get_monthly_payment(amount):
+    return convertToUSD(amount/12)
+
+amount_due = randomNum('float',1000,5000)
+monthly_payment = get_monthly_payment(amount_due)
 print(f'The monthly payment is {monthly_payment}')
 
 
@@ -372,18 +376,18 @@ print(f'The monthly payment is {monthly_payment}')
 # formatting.py
 # This program demonstrates how a floating-point number can be
 # formatted.
-amount_due = 5000.0
-monthly_payment = amount_due / 12.0
-print(f'The monthly payment is {convertToUSD(monthly_payment)}')
+amount_due = randomNum('float',1000,5000)
+monthly_payment = get_monthly_payment(amount_due)
+print(f'The monthly payment is {monthly_payment}')
 
 
 # Program 21
 # dollar_display.py
 # This program demonstrates how a floating-point number can be
 # displayed as currency.
-amount_due = 5000.0
-monthly_payment = amount_due / 12.0
-print(f'The monthly payment is {convertToUSD(monthly_payment)}')
+amount_due = randomNum('float',1000,5000)
+monthly_payment = get_monthly_payment(amount_due)
+print(f'The monthly payment is {monthly_payment}')
 
 
 # Program 22
@@ -401,7 +405,7 @@ numbers = {}
 # with variables num(x) as key value-pairs in the
 # numbers dictionary.
 # Using range() to get t a range of values from 0
-# to 7, which is the same as 1-6.
+# to 6, which is the same as 1-6.
 for x in range(0,6):
     numbers[f'num{x}'] = randomNum('float',1,800)
 
