@@ -295,11 +295,14 @@ print(f'Your pay is {convertToUSD(pay)}')
 # Get the item's original price.
 original_price = float(input("Enter the item's original price:\t"))
 
-# Calculate the amount of the discount.
-discount = original_price * .2
+# I created a function to compute the discount.
+def calculate_discount(price,discount):
+    # Calculate the amount of the discount.
+    discount = price * discount
+    # Calculate the sales price.
+    return price - discount
 
-# Calculate the sales price.
-sale_price = original_price - discount
+sale_price = calculate_discount(original_price,.2)
 
 # Display the sale price.
 print(f'The sale price is {convertToUSD(sale_price)}')
@@ -313,12 +316,30 @@ test1 = float(input('Enter the first test score:\t'))
 test2 = float(input('Enter the second test score:\t'))
 test3 = float(input('Enter the third test score:\t'))
 
+# I am storing all of the values received from the input()s
+# into a dictionary
+test_scores = {
+    test1,
+    test2,
+    test3,
+}
 # Calculate the average of the three scores
 # and assign the result to the average score.
-average = ((test1 + test2 + test3) / 3.0)
+# I have created an average function.
+def average(scores):
+    total = 0
+    # Looping through the scores data
+    for score in scores:
+        # Adding the total test scores together
+        total += score
+        # Dividing the total by the length
+    return total / len(scores)
+
+# Storing the return of average()
+average_test_scores = average(test_scores)
 
 # Display the average
-print(f'The average score is {average}%')
+print(f'The average score is {average_test_scores}%')
 
 
 # Program 17
@@ -339,7 +360,7 @@ def time_converter(seconds):
 # Get a number of seconds from the user.
 total_seconds = float(input('Enter a number of seconds:\t'))
 
-# Execute the function with the total_seconds parameter
+# Store the return of the time_converter function in a var
 time_dict = time_converter(total_seconds)
 
 # Display the results
@@ -352,7 +373,7 @@ print(
 
 # Program 18
 # future_value.py
-# Compressing all the steps into a function
+# I compressed all of the steps into a function
 def calculate_amount():
     # Get the desired future value.
     future_value = float(input('Enter the desired future value:\t'))
@@ -422,6 +443,6 @@ for x in range(0, 6):
 
 # Display each number in a field of 7 spaces
 # with 2 decimal spaces.
-# I used another for loop to print all of the va
+# I used another for loop to print all of the var
 for i in numbers:
     print(numbers[i])
