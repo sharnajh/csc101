@@ -323,21 +323,31 @@ print(f'The average score is {average}%')
 
 # Program 17
 # time_converter.py
+# I created a time_convert function in order to wrap up
+# all of the steps, and it returns a dictionary to give
+# the related data a comprehensive grouping
+def time_converter(seconds):
+    return {
+        # Get the number of hours.
+        "hours": seconds // 3600,
+        # Get the number of remaining minutes.
+        "minutes": (seconds // 60) % 60,
+        # Get the number of remaining seconds.
+        "seconds": seconds % 60
+    }
+
 # Get a number of seconds from the user.
 total_seconds = float(input('Enter a number of seconds:\t'))
 
-# Get the number of hours.
-hours = total_seconds // 3600
-
-# Get the number of remaining minutes.
-minutes = (total_seconds // 60) % 60
-
-# Get the number of remaining seconds.
-seconds = total_seconds % 60
+# Execute the function with the total_seconds parameter
+time_dict = time_converter(total_seconds)
 
 # Display the results
 print('Here is the time in hours, minutes, and seconds:')
-print(f'Hours:\t{hours}\nMinutes:\t{minutes}\nSeconds:\t{seconds}')
+print(
+    f'Hours:\t{time_dict["hours"]}\n\
+    Minutes:\t{time_dict["minutes"]}\n\
+    Seconds:\t{time_dict["seconds"]}')
 
 
 # Program 18
@@ -368,7 +378,7 @@ calculate_amount()
 def get_monthly_payment(amount):
     return convertToUSD(amount/12)
 
-amount_due = randomNum('float',1000,5000)
+amount_due = randomNum('float', 1000, 5000)
 monthly_payment = get_monthly_payment(amount_due)
 print(f'The monthly payment is {monthly_payment}')
 
@@ -377,7 +387,7 @@ print(f'The monthly payment is {monthly_payment}')
 # formatting.py
 # This program demonstrates how a floating-point number can be
 # formatted.
-amount_due = randomNum('float',1000,5000)
+amount_due = randomNum('float', 1000, 5000)
 monthly_payment = get_monthly_payment(amount_due)
 print(f'The monthly payment is {monthly_payment}')
 
@@ -386,7 +396,7 @@ print(f'The monthly payment is {monthly_payment}')
 # dollar_display.py
 # This program demonstrates how a floating-point number can be
 # displayed as currency.
-amount_due = randomNum('float',1000,5000)
+amount_due = randomNum('float', 1000, 5000)
 monthly_payment = get_monthly_payment(amount_due)
 print(f'The monthly payment is {monthly_payment}')
 
@@ -397,7 +407,7 @@ print(f'The monthly payment is {monthly_payment}')
 # floating-point numbers in a column
 # with their decimal points aligned.
 # Writing out multiple values and printing each
-# one-by-one is an anti-pattern in coding, so I 
+# one-by-one is an anti-pattern in coding, so I
 # am automating it with a dictionary and for loops.
 # First, I declared a dictionary called numbers.
 numbers = {}
@@ -407,8 +417,8 @@ numbers = {}
 # numbers dictionary.
 # Using range() to get t a range of values from 0
 # to 6, which is the same as 1-6.
-for x in range(0,6):
-    numbers[f'num{x}'] = randomNum('float',1,800)
+for x in range(0, 6):
+    numbers[f'num{x}'] = randomNum('float', 1, 800)
 
 # Display each number in a field of 7 spaces
 # with 2 decimal spaces.
