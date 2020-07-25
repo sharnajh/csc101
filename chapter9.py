@@ -54,12 +54,12 @@ def randomNum(type, min, max):
 
 # Decided to create a function to generate inputs because it would be
 # repetitive to hardcode this standard functionality every time.
-def generateInput(var, type, message):
+def generateInput(type, message):
     # globals() allows for dynamic variable names, which means
     # we can declare a variable's name as the value of another variable,
     # which in this case is the var parameter of this function.
     # I read online that dictionaries would be better for dynamic vars.
-    globals()[var] = input(f'{message}\t')      # \t to add spacing
+    value = input(f'{message}\t')      # \t to add spacing
     if type == "name":
         # Checks if input is a valid first name by using isalpha()
         # which checks if the string has alphabet characters only.
@@ -68,14 +68,18 @@ def generateInput(var, type, message):
         # I removed all of the spaces in the input with replace()
         # because isalpha returns false if there are spaces in the
         # string.
-        while not globals()[var].replace(" ", "").isalpha():
-            print(f'Whoops! "{globals()[var]}" is not a valid name')
-            globals()[var] = input(f'{message}\t')
+        while not value.replace(" ", "").isalpha():
+            print(f'Whoops! "{value}" is not a valid name')
+            value = input(f'{message}\t')
+        if value.replace(" ", "").isalpha():
+            return value
     elif type == "number":
         # isnumeric() is the same as isalpha() but for number values
-        while not globals()[var].isnumeric():
-            print(f'Whoops! "{globals()[var]}" is not a valid number')
-            globals()[var] = input(f'{message}\t')
+        while not value.isnumeric():
+            print(f'Whoops! "{value}" is not a valid number')
+            value = input(f'{message}\t')
+        if value.isnumeric():
+            return value
     else:
         print(f'{type} is not a valid type')
 
@@ -236,12 +240,10 @@ print(f'{kahryn.first_name} {kahryn.last_name}')
 # Program 12
 # string_input.py
 # Get the user's first name.
-user_first_name = None
-generateInput("user_first_name", "name", "Enter your first name:")
+user_first_name = generateInput("name", "Enter your first name:")
 
 # Get the user's last name.
-user_last_name = None
-generateInput("user_last_name", "name", "Enter your last name:")
+user_last_name = generateInput("name", "Enter your last name:")
 
 # Create new Person object with user's data
 user = Person(user_first_name, user_last_name)
@@ -257,11 +259,9 @@ print('Hello', user.first_name, user.last_name, end="!\n")
 # Program 13
 # input.py
 # Get the user's age and income.
-generateInput("age", "number", "What is your age?")
-user.age = int(globals()["age"])
+user.age = generateInput("number", "What is your age?")
 
-generateInput("income", "number", "What is your income?")
-user.income = float(globals()["income"])
+user.income = float(generateInput("number", "What is your income?"))
 
 # Display the data
 print('Here is the data you entered:')
@@ -328,7 +328,7 @@ test_scores = {
 # I have created an average function.
 def average(scores):
     total = 0
-    # Looping through the scores data
+    # Looping through the scores data with for loop
     for score in scores:
         # Adding the total test scores together
         total += score
