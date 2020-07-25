@@ -29,7 +29,7 @@ def getGreeting(hour):
         return "Good afternoon"
     if hour >= 18 and hour <= 21:
         return "Good evening"
-    if hour >= 22 and hour <= 24:
+    if (hour >= 22 and hour <= 24) or hour == 0:
         return "You're sure up late"
 
 greeting = getGreeting(current_hour)
