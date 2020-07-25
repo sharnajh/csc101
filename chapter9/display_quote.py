@@ -8,7 +8,7 @@
 # a random value from the array.
 
 # Importing randomNum() from helper_functions.py
-from helpers.helper_functions import randomNum
+from helper_functions import randomNum
 
 # I am storing the different possible Shakespeare books in
 # an array with a constant variable, as I do not intend for

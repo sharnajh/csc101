@@ -9,7 +9,7 @@
 # one-by-one is an anti-pattern in coding, so I
 # am automating it with a dictionary and for loops.
 
-from helpers.helper_functions import randomNum
+from helper_functions import randomNum
 
 # First, I declared a dictionary called numbers.
 numbers = {}

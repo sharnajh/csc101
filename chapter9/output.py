@@ -8,7 +8,7 @@
 # with 'Kate Austen's' data from the textbook.
 
 # I am importing the Person class from Person_class.py
-from helpers.Person_class import Person
+from Person_class import Person
 
 # Then I created an object instance of Person Class with Kate's data
 kate = Person("Kate",

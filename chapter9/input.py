@@ -9,8 +9,8 @@
 # 'sep argument'
 
 # Importing generateInput() from helper_functions
-from helpers.helper_functions import generateInput, convertToUSD
-from helpers.Person_class import Person
+from helper_functions import generateInput, convertToUSD
+from Person_class import Person
 
 # Get the user's age and income.
 first_name = generateInput("name", "What is your first name?")

@@ -10,8 +10,8 @@
 # Importing the generateInput() helper function from
 # helper_functions.py
 
-from helpers.helper_functions import generateInput
-from helpers.Person_class import Person
+from helper_functions import generateInput
+from Person_class import Person
 
 # I am using the generateInput() helper function to 
 # receive the inputs, check if they're the right data types,

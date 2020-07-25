@@ -8,7 +8,7 @@
 # with the convertToUSD helper function
 
 # Import convertToUSD() from helper_functions
-from helpers.helper_functions import convertToUSD, randomNum
+from helper_functions import convertToUSD, randomNum
 
 # This demonstrates how a floating-point number is displayed
 # with no formatting.

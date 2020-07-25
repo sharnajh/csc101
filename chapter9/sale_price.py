@@ -7,7 +7,7 @@
 # convertToUSD helper function to format the return
 
 # Importing convertToUSD() from helper_functons.py
-from helpers.helper_functions import convertToUSD
+from helper_functions import convertToUSD
 
 # This program gets an item's original price and
 # calculates its sales price, with a 20% discount.
