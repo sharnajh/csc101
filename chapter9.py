@@ -394,8 +394,6 @@ calculate_amount()
 # no_formatting.py
 # This demonstrates how a floating-point number is displayed
 # with no formatting.
-# Creating function to compute the monthly payments determined
-# by how much is due
 def get_monthly_payment(amount):
     return convertToUSD(amount/12)
 

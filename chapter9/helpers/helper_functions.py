@@ -74,14 +74,12 @@ def generateInput(type, message):
         while not value.replace(" ", "").isalpha():
             print(f'Whoops! "{value}" is not a valid name')
             value = input(f'{message}\t')
-        if value.isalpha():
-            return value
+        return value
     elif type == "number":
         # isnumeric() is the same as isalpha() but for number values
         while not value.isnumeric():
             print(f'Whoops! "{value}" is not a valid number')
             value = input(f'{message}\t')
-        if value.isnumeric():
-            return value
+        return value
     else:
         print(f'{type} is not a valid type')
