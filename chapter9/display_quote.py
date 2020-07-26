@@ -1,6 +1,5 @@
 # CSC 101
 # Sharna Hossain
-# Chapter 9
 # Program 4 | output.py
 
 # In my modification of Program 4, I have created an array

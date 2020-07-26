@@ -1,4 +1,5 @@
 # CSC 101
+# Sharna Hossain
 # Program 13 | input.py
 
 # In my modification of Program 13, I am using the

@@ -1,6 +1,5 @@
 # CSC 101
 # Sharna Hossain
-# Chapter 9
 # Program 1 | output.py
 
 # In my modification of Program 1, I am using Class/Object
