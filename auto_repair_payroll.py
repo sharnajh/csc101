@@ -3,9 +3,6 @@
 # Chapter 10 | Program 2
 # auto_repair_payroll.py
 
-# import random module to generate random nums
-import random
-
 # Named constant to represent the tax
 TAX = 0.35
 
