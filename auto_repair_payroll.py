@@ -9,6 +9,8 @@ BASE_HOURS = 40         # Base hours per week
 OT_MULTIPLIER = 1.5     # Overtime multiplier
 
 # Function that checks if input is valid data type
+
+
 def generateFloatInput(message):
     value = input(f'{message}\t')
     # If input has any letters in it, will continue
@@ -18,6 +20,7 @@ def generateFloatInput(message):
         print(f'"{value}" is not a valid float')
         value = input(f'{message}')
     return value
+
 
 # Get the hours worked and the hourly pay rate.
 # Using generateFloatInput() to check valid data types.
