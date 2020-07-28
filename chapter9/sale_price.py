@@ -25,6 +25,7 @@ def calculate_discount(price, discount):
     # Calculate the sales price.
     return price - discount
 
+
 # Generating random discount with random() function
 discount = randomNum("float", .1, .9)
 

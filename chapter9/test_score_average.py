@@ -22,6 +22,8 @@ test_scores = {
 # Calculate the average of the three scores
 # and assign the result to the average score.
 # I have created an average function.
+
+
 def average(scores):
     total = 0
     # Looping through the scores data with for loop
@@ -30,6 +32,7 @@ def average(scores):
         total += score
         # Dividing the total by the length of dictionary
     return total / len(scores)
+
 
 # Storing the return of average()
 average_test_scores = average(test_scores)

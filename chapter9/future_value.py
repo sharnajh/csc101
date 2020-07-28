@@ -18,5 +18,6 @@ def calculate_amount():
     # Display the amount needed to deposit
     return print(f'You will need to deposit this amount: {present_value}')
 
+
 # Executing function
 calculate_amount()

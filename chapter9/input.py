@@ -20,7 +20,7 @@ age = generateInput("number", "What is your age?")
 income = float(generateInput("number", "What is your income?"))
 
 # Create new instance of Person class
-user = Person(first_name,last_name)
+user = Person(first_name, last_name)
 
 # Adding other data to the user instance
 user.age = age

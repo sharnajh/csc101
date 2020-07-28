@@ -5,11 +5,11 @@
 # I have created several helper functions in order
 # to import and use them across all of my programs.
 # This is an effort to DRY my code.
-# DRY means "Don't Repeat Yourself", and it is a 
+# DRY means "Don't Repeat Yourself", and it is a
 # programming principle that I learned from the book
 # "The Pragamatic Programmer" by Andy Hunt.
 # By doing this, I have saved coding time that would
-# have been wasted rewriting the same function in 
+# have been wasted rewriting the same function in
 # several files.
 
 # I am importing Python3's built-in random module in order
@@ -19,6 +19,8 @@ import random
 # This helper function takes a int/float dollar amount
 # as a parameter and converts it to a string, and formats it
 # into USD format (ex: $100.00) using the format function.
+
+
 def convertToUSD(amount):
     # I am using Python 3's Literal String Interpolation
     # in order to inject Python code inside of the string.

@@ -12,9 +12,12 @@ from helper_functions import convertToUSD, randomNum
 
 # This demonstrates how a floating-point number is displayed
 # with no formatting.
+
+
 def get_monthly_payment(amount):
     # Format
     return convertToUSD(amount/12)
+
 
 # Generate random value with randomNum() helper function
 amount_due = randomNum('float', 1000, 5000)

@@ -2,7 +2,7 @@
 # Sharna Hossain
 # Program 17 | time_converter.py
 
-# In my modification of Program 17, I have created a time_converter 
+# In my modification of Program 17, I have created a time_converter
 # that returns a dictionary to give
 # the related data a comprehensive grouping
 
@@ -15,6 +15,7 @@ def time_converter(seconds):
         # Get the number of remaining seconds.
         "seconds": seconds % 60
     }
+
 
 # Get a number of seconds from the user.
 total_seconds = float(input('Enter a number of seconds:\t'))
