@@ -50,9 +50,10 @@ total = 0
 for item in shopping_cart.values():
     total += item.subtotal
 
-# Now I am going to calculate tax to the total and store it into a
-# grand_total variable
+# Calculate tax
 tax_value = total * TAX
+
+# Calculate grand total
 grand_total = total + tax_value
 
 # Because I have a lot of data that I want to be formatted
