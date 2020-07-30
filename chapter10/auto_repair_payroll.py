@@ -5,6 +5,8 @@
 
 # Named constant to represent the tax
 TAX = 0.35
+OVERTIME_CAP = 40
+OVERTIME_RATE = 0.2
 
 # Create class for employees that take in values for name
 # and their rate of pay according to their position
@@ -43,6 +45,11 @@ print(f'The tax rate is {TAX*100}%')
 for x in employees.values():
     # calculate gross pay
     x.gross_pay = x.hours_worked * x.pay_rate
+    # calculate overtime hours
+    overtime = x.hours_worked - OVERTIME_CAP
+    # using if-statement to add OT to employee's gross pay
+    if (overtime > 0):
+        x.gross_pay += ((overtime * x.pay_rate) * OVERTIME_RATE)
     # calculate net pay
     x.net_pay = x.gross_pay - (x.gross_pay * TAX)
     # printing all of the details of each employee
