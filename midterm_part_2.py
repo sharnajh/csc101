@@ -36,8 +36,7 @@ print(f'Please note that the sales tax is {TAX*100}%.\n')
 for i in range(1, 6):
     # Using title to capitalize every word in string
     print(f'\nEnter details for item {i} below')
-    name = input("Name:\t").title()
-    # Using the f string to interject python into the string
+    name = input(f"Name:\t").title()
     price = float(input(f'Price:\t'))
     quantity = int(input(f'Quantity:\t'))
     shopping_cart[i] = Item(name,price,quantity)
