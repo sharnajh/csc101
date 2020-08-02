@@ -5,11 +5,14 @@
 
 # This program displays property taxes.
 
-# For my alteration of property_tax.py, I am use a
-# for loop with the range function to produce a 
-# logging off screen effect at the end of the program.
+# For my alteration of property_tax.py, I am using a
+# for loop on a string to loop through each character
+# and print a psuedo logging off effect. This is to 
+# demonstrate that there are many different data types
+# that a loop function can loop through.
 
 TAX_FACTOR = 0.0065     # Represents the tax factor.
+LOGGING_OFF_MESSAGE = "LOGGING OFF"
 
 # Get the first lot number.
 print('Enter the property lot number')
@@ -33,13 +36,6 @@ while lot != 0:
     print('enter 0 to end.')
     lot = int(input('Lot number:\t'))
 
-# Runs when lot == 0
-print("Logging off")
-# Empty accumulator
-message = ""
-# Enacting a loop function that iterates 5 times
-for x in range(5):
-    # Each iteration adds a "." to the message var
-    message += "."
-    print(message)
-print("Logged off! Bye bye!")
+for char in LOGGING_OFF_MESSAGE:
+    print(char)
+print("👋")
