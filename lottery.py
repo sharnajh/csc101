@@ -2,15 +2,15 @@
 # Sharna Hossain
 # Chapter 12
 
-# I have created a "main" Python function that takes in
+# I have created a lottery script that takes in
 # an input value of one of the following types of lotteries:
 # Pick 5, Lotto, Pick 10, and Mega Pick. Each type of
 # lottery will execute a function that generates a random 
 # number constricted to the limitations of each type of lottery.
 
 # The code makes use of several principles learned in Chapter 12,
-# such as modularizing code into functions, global/local vars, and
-# the random module.
+# such as modularizing code into functions, global/local vars, 
+# void functions, and the random module.
 
 # Importing the random module to generate random integers
 import random
