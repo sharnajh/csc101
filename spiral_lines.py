@@ -1,5 +1,7 @@
 import turtle
 
+turtle.pencolor("blue")
+
 START_X = -200
 START_Y = 0
 NUM_LINES = 36
@@ -17,3 +19,5 @@ turtle.speed(ANIMATION_SPEED)
 for x in range(NUM_LINES):
     turtle.forward(LINE_LENGTH)
     turtle.left(ANGLE)
+
+turtle.done()

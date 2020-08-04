@@ -19,6 +19,7 @@
 
 # This program draws a design using repeated circles.
 # Importing random module to help select random integer.
+# Importing keyboard to detect correct keypress.
 import random
 import turtle
 
@@ -31,10 +32,13 @@ turtle.colormode(255)
 
 # Setting background color to black to make colors stand out.
 turtle.bgcolor("black")
+turtle.hideturtle()
 
 # Creating helper functions to generate 3 random integer
 # between 0 and 255 using the random module, which together
 # make an RGB color code.
+
+
 def random_rgb():
     # Generate random RGB code by returning 3 random floats
     return (random.randint(0, 255),
@@ -53,14 +57,18 @@ turtle.speed(ANIMATION_SPEED)
 
 # Draw 36 circles, with the turtle tilted
 # by 10 degrees after each circle is drawn.
-for x in range(NUM_CIRCLES):
-    # Generate random RGB code for pencolor
-    petal_outline = random_rgb()
-    # Change the pencolor
-    turtle.pencolor(petal_outline)
-    turtle.circle(RADIUS)
-    turtle.left(ANGLE)
 
+
+def draw_flower():
+    for x in range(NUM_CIRCLES):
+        # Generate random RGB code for pencolor
+        petal_outline = random_rgb()
+        # Change the pencolor
+        turtle.pencolor(petal_outline)
+        turtle.circle(RADIUS)
+        turtle.left(ANGLE)
+
+draw_flower()
 
 # Stops turtle window from closing
 turtle.done()
