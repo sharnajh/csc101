@@ -5,10 +5,12 @@
 # I have created a "main" Python function that takes in
 # an input value of one of the following types of lotteries:
 # Pick 5, Lotto, Pick 10, and Mega Pick. Each type of
-# lottery will execute a function that takes in the user's
-# 'play,' and then generates a random number constricted to
-# the limitations of each type of lottery. The script will
-# then check if the user won the lottery or not.
+# lottery will execute a function that generates a random 
+# number constricted to the limitations of each type of lottery.
+
+# The code makes use of several principles learned in Chapter 12,
+# such as modularizing code into functions, global/local vars, and
+# the random module.
 
 # Importing the random module to generate random integers
 import random
@@ -21,20 +23,16 @@ LOTTERY_TYPES = [
     "Mega Pick"
 ]
 
-# Global variable
+# Global variables
 lottery_numbers = []
-selected_type = ""
 
 
 def main():
+    # Get input and store into local var
+    selected_type = get_input()
 
-    # Prompting user input
-    print("Available lottery types:")
-    for x in LOTTERY_TYPES:
-        print(f'- {x}')
-    while not selected_type in LOTTERY_TYPES:
-        selected_type = input(f'Select lottery type:\t')
-
+    # Start generating lottery numbers
+    print(f"You are playing '{selected_type}'!")
     # Execute the selected lottery type
     if selected_type == "Pick 5":
         pick_five()
@@ -82,9 +80,27 @@ def mega_pick():
 
 def print_lotto_numbers():
     print("Lottery numbers:\t", end="")
+    # Formats list of lottery numbers.
     for x in lottery_numbers:
         print(x, end=" ")
+    # Ends script
     print("\nThanks for playing!")
 
+# Get the input
 
+
+def get_input():
+    print("Available lottery types:")
+    # Print each available lottery type
+    for x in LOTTERY_TYPES:
+        print(f'- {x}')
+    # Assign new value to global var
+    selected_type = input(f'Select lottery type:\t')
+    # Error handling
+    while not selected_type in LOTTERY_TYPES:
+        print("ERROR: Invalid lotto type.")
+        selected_type = input(f'Reselect lottery type:\t')
+    return selected_type
+
+# Executing main function
 main()
