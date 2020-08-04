@@ -15,6 +15,8 @@
 # Importing the random module to generate random integers
 import random
 
+# Global variables
+lottery_numbers = []
 # List of the different lottery types
 LOTTERY_TYPES = [
     "Pick 5",
@@ -22,9 +24,6 @@ LOTTERY_TYPES = [
     "Pick 10",
     "Mega Pick"
 ]
-
-# Global variables
-lottery_numbers = []
 
 
 def main():
@@ -36,11 +35,11 @@ def main():
     # Execute the selected lottery type
     if selected_type == "Pick 5":
         pick_five()
-    if selected_type == "Lotto":
+    elif selected_type == "Lotto":
         lotto()
-    if selected_type == "Pick 10":
+    elif selected_type == "Pick 10":
         pick_ten()
-    if selected_type == "Mega Pick":
+    elif selected_type == "Mega Pick":
         mega_pick()
 
     # Printing the generated lottery number
@@ -100,6 +99,7 @@ def get_input():
     while not selected_type in LOTTERY_TYPES:
         print("ERROR: Invalid lotto type.")
         selected_type = input(f'Reselect lottery type:\t')
+    # Return value and end function
     return selected_type
 
 
