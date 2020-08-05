@@ -4,6 +4,7 @@
 # dice.py
 
 # This program simulates the rolling of dice.
+
 # Depending on the values of each simulated dice
 # roll, my modified version of dice.py will return
 # a special nickname for that roll. Nicknames are
@@ -11,6 +12,9 @@
 # https://vitalvegas.com/colorful-nicknames-dice-combinations-craps/
 
 import random
+
+# Modulated code that generates the nickname - combos pairs
+# in dice_nicknames.py and importing it into dice.py
 import dice_nicknames
 
 # Contants for the minimum and maximum random numbers
