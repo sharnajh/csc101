@@ -22,3 +22,9 @@ def calculate_net(gross):
     gross -= float(gross * TAX)
     # Return gross
     return gross
+
+def display_info(employee):
+    print(f"Name:\t{employee['name']}")
+    print(f"Hours Worked:\t{employee['hours']}")
+    print(f"Rate of Pay:\t${format(employee['rate'], ',.2f')}")
+    print(f"Net Pay:\t${format(employee['net'], ',.2f')}")
