@@ -6,12 +6,16 @@
 # This program allows the user to choose various
 # geometry calculations from a menu. This program
 # imports the circle and rectangle modules.
+
+# For my modification of geometry.py, I am modularizing
+# repeated code into functions that can be reused.
+
 import circle
 import rectangle
 
 # Constants for the menu choices
 AREA_CIRCLE_CHOICE = 1
-CIRCUMFRENCE_CHOICE = 2
+CIRCUMFERENCE_CHOICE = 2
 AREA_RECTANGLE_CHOICE = 3
 PERIMETER_RECTANGLE_CHOICE = 4
 QUIT_CHOICE = 5
@@ -31,22 +35,24 @@ def main():
 
         # Perform the selected action.
         if choice == AREA_CIRCLE_CHOICE:
-            radius = float(input("Enter the circle's radius:\t"))
+            radius = get_radius()
             print(f'The area is {circle.area(radius)}')
 
-        elif choice == CIRCUMFRENCE_CHOICE:
-            radius = float(input("Enter the circle's radius:\t"))
-            print(f'The circumfrence is {circle.circumfrence(radius)}')
+        elif choice == CIRCUMFERENCE_CHOICE:
+            radius = get_radius()
+            print(f'The circumfrence is {circle.circumference(radius)}')
 
         elif choice == AREA_RECTANGLE_CHOICE:
-            width = float(input("Enter the rectangle's width:\t"))
-            length = float(input("Enter the rectangle's length:\t"))
-            print(f'The area is {rectangle.area(width,length)}')
+            dimensions = get_rectangle_dimensions()
+            # Calculating the result with the dimensions dictionary
+            res = rectangle.area(dimensions["width"],dimensions["length"])
+            print(f'The area is {res}')
 
         elif choice == PERIMETER_RECTANGLE_CHOICE:
-            width = float(input("Enter the rectangle's width:\t"))
-            length = float(input("Enter the rectangle's length:\t"))
-            print(f'The perimeter is {rectangle.perimeter(width,length)}')
+            dimensions = get_rectangle_dimensions()
+            # Calculating the result with the dimensions dictionary
+            res = rectangle.perimeter(dimensions["width"],dimensions["length"])
+            print(f'The perimeter is {res}')
 
         elif choice == QUIT_CHOICE:
             print('Exiting the program...')
@@ -62,6 +68,19 @@ def display_menu():
     print("3) Area of a rectangle")
     print("4) Perimeter of a rectangle")
     print("5) Quit")
+
+# Modularizing code
+
+def get_radius():
+    return float(input("Enter the circle's radius:\t"))
+
+def get_rectangle_dimensions():
+    # Creating empty dictionary to store dimensions
+    dimensions = {}
+    # Storing the inputs as values in the dictionary
+    dimensions["width"] = float(input("Enter the rectangle's width:\t"))
+    dimensions["length"] = float(input("Enter the rectangle's length:\t"))
+    return dimensions
 
 # Call the main function.
 main()

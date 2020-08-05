@@ -1,9 +1,7 @@
 # CSC 101
 # Sharna Hossain
 # Chapter 12 | Program 23 + module
-# commissions.py
-
-# Module for commission_rate.py
+# module for commission_rate.py
 
 # The get_sales function gets a salesperson's
 # monthly sales from the user and returns that value.
