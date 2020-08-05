@@ -35,12 +35,15 @@ def main():
         # determine the combo name for the combo the cpu
         # has randomized.
         for nickname,pair in dice_combos.items():
+            # Checks if combo and the pair match, reversed or not
             if dice_pair == pair or dice_pair == reversed(pair):
                 combo_name = nickname
+
+        # Displaying dice roll
         print('Rolling the dice...')
         print('Their values are: ')
         print(f'{dice_pair[0]} and {dice_pair[1]}')
-        print(f'{combo_name}!')
+        print(f'"{combo_name}!"')
 
         # Do another roll of the dice?
         again = input('Roll them again? (y = yes):\t')
