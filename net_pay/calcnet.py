@@ -13,9 +13,14 @@ def get_info():
     employee["rate"] = float(input("What is your rate of pay?\t\t"))
     employee["hours"] = float(input("How many hours did you work?\t\t"))
     # Calculate the gross from input data
-    employee["gross"] = float(employee["hours"] * employee["rate"])
+    employee["gross"] = calculate_gross(employee["hours"],employee["rate"])
+    # Calculate the net from input data
+    employee["net"] = calculate_net(employee["gross"])
     # Return employee dictionary
     return employee
+
+def calculate_gross(hours,rate):
+    return float(hours * rate)
 
 def calculate_net(gross):
     # Deduct taxes to calculate the net
