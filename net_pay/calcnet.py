@@ -5,6 +5,7 @@
 # Value of tax
 TAX = 0.15
 
+
 def get_info():
     # Create empty dictionary to store employee info
     employee = {}
@@ -13,20 +14,23 @@ def get_info():
     employee["rate"] = float(input("What is your rate of pay?\t\t"))
     employee["hours"] = float(input("How many hours did you work?\t\t"))
     # Calculate the gross from input data
-    employee["gross"] = calculate_gross(employee["hours"],employee["rate"])
+    employee["gross"] = calculate_gross(employee["hours"], employee["rate"])
     # Calculate the net from input data
     employee["net"] = calculate_net(employee["gross"])
     # Return employee dictionary
     return employee
 
-def calculate_gross(hours,rate):
+
+def calculate_gross(hours, rate):
     return float(hours * rate)
+
 
 def calculate_net(gross):
     # Deduct taxes to calculate the net
     gross -= float(gross * TAX)
     # Return gross
     return gross
+
 
 def display_info(employee):
     print(f"Name:\t{employee['name']}")
