@@ -72,7 +72,7 @@ input {
 
 .header {
   display: grid;
-  grid-template-columns: 1fr 0.5fr 0.5fr 0.5fr 0.5fr;
+  grid-template-columns: 1fr 0.5fr 0.5fr 0.5fr 0.25fr;
   background-color: black;
   color: white;
   place-items: center;
@@ -85,7 +85,7 @@ input {
 
 .row {
   display: grid;
-  grid-template-columns: 1fr 0.5fr 0.5fr 0.5fr 0.5fr;
+  grid-template-columns: 1fr 0.5fr 0.5fr 0.5fr 0.25fr;
   place-items: center;
 }
 
@@ -111,7 +111,7 @@ input {
 
 .totals-row {
   display: grid;
-  grid-template-columns: 1fr 0.5fr 0.5fr 0.5fr 0.5fr;
+  grid-template-columns: 1fr 0.5fr 0.5fr 0.5fr 0.25fr;
   place-items: center;
   background-color: black;
   color: white;
