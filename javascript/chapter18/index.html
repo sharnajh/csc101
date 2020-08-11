@@ -1,0 +1,49 @@
+<!-- Sharna Hossain -->
+<!-- Chapter 18 -->
+<!-- Grocery List -->
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Sharna Hossain | Chapter 18</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h2 id="title">Sharna Hossain | CSC101 | Chapter 18</h2>
+        <main>
+        <form id="add-form">
+            <h3>Add New Item</h3>
+            <input id="name-input" type="text" placeholder="Item name" />
+            <input id="price-input" type="number" placeholder="Price" />
+            <input id="qty-input" type="number" placeholder="Quantity" />
+            <button id="submit-btn" type="button">
+                Add Item
+            </button>
+        </form>
+        <div class="list-wrapper">
+        <div id="grocery-list">
+            <div class="header">
+                <span class="title">Item</span>
+                <span class="title">Quantity</span>
+                <span class="title">Unit Price</span>
+                <span class="title">Subtotal</span>
+            </div>
+        </div>
+        <div class="totals-wrapper">
+            <div class="totals-row">
+                <div class="label">Subtotal:</div>
+                <div id="subtotal"></div>
+            </div>
+            <div class="totals-row">
+                <div class="label">Grand Total:</div>
+                <div id="grandtotal"></div>
+            </div>
+        </div>
+        
+    </div>
+    </main>
+        <script src="scripts.js"></script>
+    </body>
+</html>

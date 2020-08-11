@@ -1,0 +1,124 @@
+/* Sharna Hossain
+Chapter 18
+Grocery List */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  margin: 0;
+}
+
+
+#title {
+  margin: 0;
+  padding: 20px;
+  font-size: 25px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  border-bottom: 2px dashed white;
+}
+
+main {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#add-form {
+  width: 30%;
+  height: calc(100vh - 20px - 20px - 25px - 5.5px);
+  position: fixed;
+  left: 0;
+  background-color: black;
+  color: white;
+  border-right: 2px dashed white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#add-form button, input {
+    font-size: 20px;
+    padding: 10px;
+    width: 80%;
+}
+
+.list-wrapper {
+  height: calc(100vh - 20px - 20px - 25px - 5.5px);
+  width: 70%;
+  right: 0;
+  position: fixed;
+  border-left: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+#grocery-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr 0.5fr 0.5fr 0.5fr 0.5fr;
+  background-color: black;
+  color: white;
+  text-transform: uppercase;
+  place-items: center;
+}
+
+.header span {
+  padding: 20px;
+  font-weight: bold;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 0.5fr 0.5fr 0.5fr 0.5fr;
+  place-items: center;
+}
+
+.row:nth-child(even) {
+  background-color: rgb(240, 240, 240);
+}
+
+.row span {
+  padding: 30px;
+}
+
+.row .delete {
+  cursor: pointer;
+  color: darkred;
+}
+
+.totals-wrapper {
+    width: 70%;
+    position: fixed;
+    bottom: 0;
+}
+
+.totals-row {
+  display: grid;
+  grid-template-columns: 1fr 0.5fr 0.5fr 0.5fr 0.5fr;
+  place-items: center;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+}
+
+.totals-row div {
+  padding: 10px;
+}
+
+.totals-row .label {
+  grid-column: 3;
+}
