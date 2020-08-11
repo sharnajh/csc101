@@ -101,10 +101,10 @@ class Item {
 }
 
 // Creating beginning data
-new Item("Almond Milk", 5, 2);
-new Item("Bananas", 2.7, 3);
-new Item("Nutella", 7, 1);
-new Item("Bread", 3.6, 2);
+new Item("Almond Milk", 5.20, 2);
+new Item("Bananas", 2.71, 3);
+new Item("Nutella", 7.20, 1);
+new Item("Bread", 3.61, 2);
 
 // Add new item by submitting form
 submitBtn.addEventListener("click", () => {
