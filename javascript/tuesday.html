@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Bean Counter</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <h2>Confirming that bean.html works</h2>
+        
+        <script type="text/JavaScript">
+            let drink = "latte";
+            ounce = 12,
+            shots = 2,
+            taxRate = 0.88,
+            price;
+
+            if (drink.toLowerCase() == "espresso") {
+                price = 1.40;
+            } else if (drink.toLowerCase() == "latte" || drink.toLowerCase() == "cappuccino") {
+                if (ounce == 8) {
+                    price = 1.95;
+                } else if (ounce == 12) {
+                    price = 2.35;
+                } else if (ounce == 16) {
+                    price = 2.75;
+                }
+            } else if (drink.toLowerCase() == "americano") {
+                price = 1.20 + 0.30 * (ounce/8);
+            }
+
+            price += (shots - 1)*.5;
+            price += price * taxRate;
+            alert(price);
+        </script>
+    </body>
+</html>
