@@ -2,6 +2,8 @@
 Chapter 18
 Grocery List */
 
+/* I used CSS grid and flex to layout this website */
+
 * {
   box-sizing: border-box;
 }
@@ -12,7 +14,6 @@ body {
   margin: 0;
 }
 
-
 #title {
   margin: 0;
   padding: 20px;
@@ -20,7 +21,7 @@ body {
   background-color: black;
   color: white;
   text-align: center;
-  border-bottom: 2px dashed white;
+  border-bottom: 2px solid white;
 }
 
 main {
@@ -37,17 +38,18 @@ main {
   left: 0;
   background-color: black;
   color: white;
-  border-right: 2px dashed white;
+  border-right: 2px solid white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-#add-form button, input {
-    font-size: 20px;
-    padding: 10px;
-    width: 80%;
+#add-form button,
+input {
+  font-size: 18px;
+  padding: 10px;
+  width: 80%;
 }
 
 .list-wrapper {
@@ -65,6 +67,7 @@ main {
   margin: 0;
   padding: 0;
   list-style: none;
+  margin-bottom: 80px;
 }
 
 .header {
@@ -72,7 +75,6 @@ main {
   grid-template-columns: 1fr 0.5fr 0.5fr 0.5fr 0.5fr;
   background-color: black;
   color: white;
-  text-transform: uppercase;
   place-items: center;
 }
 
@@ -92,18 +94,19 @@ main {
 }
 
 .row span {
-  padding: 30px;
+  height: 100px;
+  display: grid;
+  place-items: center;
 }
 
 .row .delete {
   cursor: pointer;
-  color: darkred;
 }
 
 .totals-wrapper {
-    width: 70%;
-    position: fixed;
-    bottom: 0;
+  width: 70%;
+  position: fixed;
+  bottom: 0;
 }
 
 .totals-row {

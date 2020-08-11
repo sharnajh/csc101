@@ -29,21 +29,41 @@ const calcTotals = () => {
     (subtotal, item) => (subtotal += item.subtotal),
     0
   );
+  // Formatting currency values and injecting into HTML
   subtotalEl.innerHTML = `$${subtotal.toFixed(2)}`;
   grandtotal = subtotal + subtotal * tax;
   grandtotalEl.innerHTML = `$${grandtotal.toFixed(2)}`;
 };
 
+// Helper function to capitalize strings
+const capitalize = (string) => {
+  return (
+    string
+      // Convert entire string to lowercase
+      .toLowerCase()
+      // Split each word into an array
+      .split(" ")
+      // Loop over the word array and capitalize each first letter
+      .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+      // Recombine into new string
+      .join(" ")
+  );
+};
+
 // Initializing class to create items
 class Item {
   constructor(name, price, qty) {
-    this.name = name;
+    this.name = capitalize(name.trim());
     this.price = parseFloat(price);
     this.qty = parseInt(qty);
     this.subtotal = this.price * this.qty;
+    // this.init executes every time a new obj of this class
+    // is initialized
     this.init = () => {
+      // Create new dom node to contain dynamic HTML elements
       let row = document.createElement("div");
       row.setAttribute("class", "row");
+      // Demonstrating another way to inject HTML into DOM with JS
       row.insertAdjacentHTML(
         "afterbegin",
         `
@@ -53,18 +73,26 @@ class Item {
       <span class="subtotal">$${this.subtotal.toFixed(2)}</span>
     `
       );
-
+      // Create dom node for a remove button
       let rmBtn = document.createElement("span");
       rmBtn.innerHTML = "✖";
       rmBtn.setAttribute("class", "delete");
+      // When clicked, will delete item
       rmBtn.addEventListener("click", () => {
+        // Delete DOM node
         row.remove();
+        // Remove from our data structure
         groceryItems = groceryItems.filter((item) => item !== this);
+        // Recalculate totals
         calcTotals();
       });
+      // Append remove button to the row
       row.append(rmBtn);
 
+      // Append our dynamically created DOM nodes to the DOM itself
       groceryList.append(row);
+
+      // Add the new object to our groceryItems array
       groceryItems.push(this);
     };
     this.init();
@@ -77,13 +105,16 @@ new Item("Almond Milk", 5, 2);
 new Item("Bananas", 2.7, 3);
 new Item("Nutella", 7, 1);
 new Item("Bread", 3.6, 2);
-calcTotals();
 
 // Add new item by submitting form
 submitBtn.addEventListener("click", () => {
   name = nameInput.value;
   price = priceInput.value;
   qty = qtyInput.value;
+  // Checks if input values are valid
+  if (name === "" || !price || !qty) {
+    return;
+  }
   newItem = new Item(name, price, qty);
   // Reset input values
   nameInput.value = "";
