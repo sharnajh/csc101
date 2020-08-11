@@ -133,6 +133,10 @@ input {
   font-weight: bold;
 }
 
+.totals-row:first-child {
+    border-bottom: 2px solid white;
+}
+
 .totals-row div {
   padding: 10px;
 }

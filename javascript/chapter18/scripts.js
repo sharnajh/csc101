@@ -12,7 +12,6 @@ const tax = 0.0865;
 
 // Storing all of the dom elements in vars
 let groceryList = document.getElementById("grocery-list"),
-  addForm = document.getElementById("add-form"),
   nameInput = document.getElementById("name-input"),
   priceInput = document.getElementById("price-input"),
   qtyInput = document.getElementById("qty-input"),
@@ -108,14 +107,14 @@ new Item("Bread", 3.61, 2);
 
 // Add new item by submitting form
 submitBtn.addEventListener("click", () => {
-  name = nameInput.value;
-  price = priceInput.value;
+  let name = nameInput.value,
+  price = priceInput.value,
   qty = qtyInput.value;
   // Checks if input values are valid
   if (name === "" || !price || !qty) {
     return;
   }
-  newItem = new Item(name, price, qty);
+  new Item(name, price, qty);
   // Reset input values
   nameInput.value = "";
   priceInput.value = "";
