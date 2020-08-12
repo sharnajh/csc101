@@ -55,7 +55,7 @@ const calcPrice = () => {
       : 0;
   let price;
 
-  // Calculate function with nested if-else statements
+  // Calculate by drink type and size
   if (drink == "espresso") {
     price = 1.4;
   } else if (drink == "latte" || drink == "cappuccino") {
@@ -69,7 +69,9 @@ const calcPrice = () => {
   } else if (drink == "americano") {
     price = 1.2 + 0.3 * (ounce / 8);
   }
+  // Calculate shots
   price += (shots - 1) * 0.5;
+  // Calculate tax
   price += price * taxRate;
   priceInput.value = price.toFixed(2);
 };
