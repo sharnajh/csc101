@@ -2,21 +2,53 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Bean Counter</title>
+        <title>The Bean Counter</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <h1 id="title">The Bean Counter</h1>
+        <h1 id="title">☕️ The Bean Counter ☕️</h1>
         <h2>Figuring the price of espresso drinks so baristas can have time to chat.</h2>
-        <h3 id="price"></h3>
+
         <section id="table">
-            <div class="table-row">
-                <div><button></button></div>
-                <div><button></button></div>
-                <div><button></button></div>
-                <div><input /></div>
+                <span class="signin-row">
+                   <select name="Sign In" id="signin">
+                        <option selected="true" disabled>Sign In</option>
+                        <option value="rebecca">Rebecca</option>
+                        <option value="sam">Sam</option>
+                        <option value="bart">Bart</option>
+                    </select>
+                    &nbsp;is pulling for us!
+                </span>
+
+            <div class="row inputs">
+                <input id="shot-input" />
+                <input id="size-input" />
+                <input id="type-input" />
+            </div>
+            <div class="row">
+                <button class="shots" value=1>1</button>
+                <button class="size" value="S">S</button>
+                <button class="type" value="espresso">ESPRESSO</button>
+                <button id="clear">Clear</button>
+            </div>
+            <div class="row">
+                <button class="shots" value=2>2</button>
+                <button class="size" value="T">T</button>
+                <button class="type" value="latte">LATTE</button>
+            </div>
+            <div class="row">
+                <button class="shots" value=3>3</button>
+                <button class="size" value="G">G</button>
+                <button class="type" value="cappuccino">CAPPUCCINO</button>
+                <button id="total-btn">TOTAL</button>
+            </div>
+            <div class="row">
+                <button class="shots" value=4>4</button>
+                <span></span>
+                <button class="type" value="americano">AMERICANO</button>
+                <input id="price-input" />
             </div>
         </section>
         
