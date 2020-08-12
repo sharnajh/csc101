@@ -77,6 +77,7 @@ const calcPrice = () => {
   price += (shots - 1) * 0.5;
   // Calculate tax
   price += price * taxRate;
+  // Display price
   priceInput.value = price.toFixed(2);
 };
 
