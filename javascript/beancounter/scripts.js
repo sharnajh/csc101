@@ -30,10 +30,10 @@ const totalBtn = document.getElementById("total-btn");
 const priceInput = document.getElementById("price-input");
 const calcPrice = () => {
   // Set up all values necessary to calculate price
-  const taxRate = 0.88;
-  let drink = typeInput.value.toLowerCase();
-  let shots = shotInput.value;
-  let ounce =
+  const taxRate = 0.88,
+  drink = typeInput.value.toLowerCase(),
+  shots = shotInput.value,
+  ounce =
     // ES6 Shorthand for if-else statements
     sizeInput.value == "S"
       ? 8
