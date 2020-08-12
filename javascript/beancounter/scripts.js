@@ -31,32 +31,47 @@ const priceInput = document.getElementById("price-input");
 const calcPrice = () => {
   // Set up all values necessary to calculate price
   const taxRate = 0.88,
-  drink = typeInput.value.toLowerCase(),
-  shots = shotInput.value,
-  ounce =
-    // ES6 Shorthand for if-else statements
-    sizeInput.value == "S"
-      ? 8
-      : sizeInput.value == "T"
-      ? 12
-      : sizeInput.value == "G"
-      ? 16
-      : 0;
+    drink = typeInput.value.toLowerCase(),
+    shots = shotInput.value,
+    ounce =
+      // ES6 Shorthand for if-else statements
+      sizeInput.value == "S"
+        ? 8
+        : sizeInput.value == "T"
+        ? 12
+        : sizeInput.value == "G"
+        ? 16
+        : 0;
   let price;
 
   // Calculate by drink type and size
-  if (drink == "espresso") {
-    price = 1.4;
-  } else if (drink == "latte" || drink == "cappuccino") {
-    if (ounce == 8) {
-      price = 1.95;
-    } else if (ounce == 12) {
-      price = 2.35;
-    } else if (ounce == 16) {
-      price = 2.75;
+  switch (drink) {
+    case "espresso": {
+      price = 1.4;
+      break;
     }
-  } else if (drink == "americano") {
-    price = 1.2 + 0.3 * (ounce / 8);
+    case "latte":
+    case "cappuccino": {
+      switch (ounce) {
+        case 8: {
+          price = 1.95;
+          break;
+        }
+        case 12: {
+          price = 2.35;
+          break;
+        }
+        case 16: {
+          price = 2.75;
+          break;
+        }
+      }
+      break;
+    }
+    case "americano": {
+      price = 1.2 + 0.3 * (ounce / 8);
+      break;
+    }
   }
   // Calculate shots
   price += (shots - 1) * 0.5;
