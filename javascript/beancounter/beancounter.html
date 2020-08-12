@@ -1,8 +1,10 @@
+<!-- Sharna Hossain -->
+<!-- JS Bean Counter Program -->
 <!DOCTYPE html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>The Bean Counter</title>
+        <title>☕️ The Bean Counter ☕️</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="styles.css">
@@ -12,6 +14,7 @@
         <h2>Figuring the price of espresso drinks so baristas can have time to chat.</h2>
 
         <section id="table">
+            <!-- Sign in row-->
                 <span class="signin-row">
                    <select name="Sign In" id="signin">
                         <option selected="true" disabled>Sign In</option>
@@ -22,11 +25,14 @@
                     &nbsp;is pulling for us!
                 </span>
 
+            <!-- Rows with input fields -->
             <div class="row inputs">
                 <input id="shot-input" />
                 <input id="size-input" />
                 <input id="type-input" />
             </div>
+
+            <!-- Rows with button inputs-->
             <div class="row">
                 <button class="shots" value=1>1</button>
                 <button class="size" value="S">S</button>
@@ -48,10 +54,10 @@
                 <button class="shots" value=4>4</button>
                 <span></span>
                 <button class="type" value="americano">AMERICANO</button>
-                <input id="price-input" />
+                <div class="price-input-wrapper"><input id="price-input" /></div>
             </div>
         </section>
-        
+        <footer>Coded by Sharna Hossain | CSC101</footer>
         <script type="text/JavaScript" src="scripts.js">
         </script>
     </body>
