@@ -25,17 +25,6 @@ for (const button of typeBtns) {
   });
 }
 
-// Clear function
-const clearBtn = document.getElementById("clear");
-const clear = () => {
-  typeInput.value = "";
-  shotInput.value = "";
-  sizeInput.value = "";
-};
-clearBtn.addEventListener("click", () => {
-  clear();
-});
-
 // Calculate Function
 const totalBtn = document.getElementById("total-btn");
 const priceInput = document.getElementById("price-input");
@@ -82,4 +71,16 @@ totalBtn.addEventListener("click", () => {
     return;
   }
   calcPrice();
+});
+
+// Clear function
+const clearBtn = document.getElementById("clear");
+const clear = () => {
+  typeInput.value = "";
+  shotInput.value = "";
+  sizeInput.value = "";
+  priceInput.value = "";
+};
+clearBtn.addEventListener("click", () => {
+  clear();
 });
