@@ -8,20 +8,29 @@ for (const button of shotBtns) {
 }
 
 // Sizes
+const typeInput = document.getElementById("type-input");
 const sizeInput = document.getElementById("size-input");
 const sizeBtns = document.querySelectorAll(".size");
 for (const button of sizeBtns) {
   button.addEventListener("click", () => {
     sizeInput.value = button.value;
+    sizeInput.disabled = false;
+    if (typeInput.value === "espresso") {
+      typeInput.value = "";
+    }
   });
 }
 
 // Types
-const typeInput = document.getElementById("type-input");
 const typeBtns = document.querySelectorAll(".type");
 for (const button of typeBtns) {
   button.addEventListener("click", () => {
     typeInput.value = button.value;
+    sizeInput.disabled = false;
+    if (button.value === "espresso") {
+      sizeInput.value = "";
+      sizeInput.disabled = true;
+    }
   });
 }
 
@@ -45,6 +54,8 @@ const calcPrice = () => {
   let price;
 
   // Calculate by drink type and size
+  // Using a switch function instead of if/else because
+  // it is faster.
   switch (drink) {
     case "espresso": {
       price = 1.4;
@@ -83,6 +94,9 @@ const calcPrice = () => {
 
 totalBtn.addEventListener("click", () => {
   // Check if all input fields have been entered
+  if (typeInput.value == "espresso" && shotInput.value !== "") {
+    calcPrice();
+  }
   if (typeInput.value == "" || sizeInput.value == "" || shotInput.value == "") {
     return;
   }
