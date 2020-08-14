@@ -27,6 +27,14 @@ const getPrice = (type) => {
   }
 };
 
+const getTotals = () => {
+  let gross = getPrice("toppings") + getPrice("size") + getPrice("dressings");
+  return {
+    gross,
+    net: gross + gross * tax,
+  };
+};
+
 // Sizes
 const sizeBtns = document.querySelectorAll(".size");
 const sizeInput = document.getElementById("display-size");
@@ -65,13 +73,12 @@ for (const button of dressingBtns) {
   });
 }
 
+// Totals
 const totalBtn = document.getElementById("calculate-total");
 const subtotalEl = document.getElementById("subtotal");
 const totalEl = document.getElementById("total");
 totalBtn.addEventListener("click", () => {
-  let gross = getPrice("toppings") + getPrice("size") + getPrice("dressings")
-  subtotalEl.value =
-    `$${gross.toFixed(2)}`;
-  gross += gross * tax;
-  totalEl.value = `$${gross.toFixed(2)}`;
+  totals = getTotals();
+  subtotalEl.value = `$${totals.gross.toFixed(2)}`;
+  totalEl.value = `$${totals.net.toFixed(2)}`;
 });
