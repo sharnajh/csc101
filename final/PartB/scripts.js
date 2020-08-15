@@ -14,7 +14,11 @@ let saladOptions = {
 const getPrice = (type) => {
   switch (type) {
     case "size": {
-      return saladOptions.size == "Small" ? 3.5 : saladOptions.size == "Large" ? 5.75 : 0;
+      return saladOptions.size == "Small"
+        ? 3.5
+        : saladOptions.size == "Large"
+        ? 5.75
+        : 0;
     }
     case "toppings": {
       return saladOptions.toppings.length * 0.15;
@@ -37,8 +41,8 @@ const getTotals = () => {
 
 // Sizes
 const sizeBtns = document.querySelectorAll(".size"),
-sizeInput = document.getElementById("display-size"),
-sizeSubtotal = document.getElementById("subtotal-size");
+  sizeInput = document.getElementById("display-size"),
+  sizeSubtotal = document.getElementById("subtotal-size");
 for (const button of sizeBtns) {
   button.addEventListener("click", () => {
     saladOptions.size = button.value == "s" ? "Small" : "Large";
@@ -49,8 +53,8 @@ for (const button of sizeBtns) {
 
 // Toppings
 const toppingsBtns = document.querySelectorAll(".toppings"),
-toppingsInput = document.getElementById("display-toppings"),
-toppingsSubtotal = document.getElementById("subtotal-toppings");
+  toppingsInput = document.getElementById("display-toppings"),
+  toppingsSubtotal = document.getElementById("subtotal-toppings");
 for (const button of toppingsBtns) {
   button.addEventListener("click", () => {
     if (!saladOptions.toppings.includes(button.value)) {
@@ -63,8 +67,8 @@ for (const button of toppingsBtns) {
 
 // Dressings
 const dressingBtns = document.querySelectorAll(".dressings"),
-dressingInput = document.getElementById("display-dressings"),
-dressingsSubtotal = document.getElementById("subtotal-dressings");
+  dressingInput = document.getElementById("display-dressings"),
+  dressingsSubtotal = document.getElementById("subtotal-dressings");
 for (const button of dressingBtns) {
   button.addEventListener("click", () => {
     saladOptions.dressing = button.value;
@@ -75,10 +79,13 @@ for (const button of dressingBtns) {
 
 // Totals
 const totalBtn = document.getElementById("calculate-total"),
-subtotalEl = document.getElementById("subtotal"),
-totalEl = document.getElementById("total");
+  subtotalEl = document.getElementById("subtotal"),
+  totalEl = document.getElementById("total");
 totalBtn.addEventListener("click", () => {
-  totals = getTotals();
+  if (size == "") {
+    return;
+  }
+  const totals = getTotals();
   subtotalEl.value = `$${totals.gross.toFixed(2)}`;
   totalEl.value = `$${totals.net.toFixed(2)}`;
 });
